@@ -1,3 +1,7 @@
 footer {
-  background-color: chocolate;
+  background-image: url("https://prod.assets.earlygamecdn.com/images/Different-Lanes-LoL.png?mtime=1664787303");
+  opacity: 0.8;
+  text-align: center;
+  padding: 10px;
+  background-position: center;
 }
