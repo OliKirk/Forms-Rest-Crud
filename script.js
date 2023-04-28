@@ -9,8 +9,8 @@ function initApp() {
 }
 
 async function updateChampsGrid() {
-  posts = await getChampsData();
-  showChamps();
+  champs = await getChampsData();
+  showChamps(champs);
 }
 
 async function getChampsData() {
@@ -21,7 +21,7 @@ async function getChampsData() {
   return champs;
 }
 
-function showChamps(ListOfChamps) {
+function showChamps(listOfChamps) {
   document.querySelector("#champ-data").innerHTML = ""; // reset the content of section#posts
 
   for (const champ of listOfChamps) {
@@ -61,12 +61,12 @@ function prepareChamps() {}
 
 async function deleteChamp(id) {
   const response = await fetch(`${endpoint}/champs/${id}.json`, {
-    method: "DELETE"    
-});
-if (response.ok) {
+    method: "DELETE",
+  });
+  if (response.ok) {
     console.log("Post successfully deleted from Firebase 🔥");
     updateChampsGrid();
-}
+  }
 }
 
 function updateChamp() {}
