@@ -2,6 +2,7 @@ main {
   z-index: 999;
   border: solid 1px;
   background-color: rgb(34, 33, 33);
+  text-align: center;
 }
 
 .grid-container {
