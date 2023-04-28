@@ -53,7 +53,7 @@ function updateChamp() {}
 
 function createChamp() {}
 
-function serchChamps() {}
+function searchChamps() {}
 
 function filterChamps() {}
 
