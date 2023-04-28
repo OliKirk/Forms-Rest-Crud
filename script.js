@@ -3,25 +3,34 @@
 window.addEventListener("load", initApp);
 const endpoint = "https://my-api-database-ccaf8-default-rtdb.europe-west1.firebasedatabase.app/";
 
+// skift post til champs
+
 function initApp() {
   console.log("initApp is running 🎉");
+  updateChampsGrid();
 }
 
 async function updateChampsGrid() {
-  posts = await getChampsData();
-  showChamps();
+  champs = await getChampsData();
+  showChamps(champs);
 }
 
 async function getChampsData() {
   const response = await fetch(`${endpoint}/posts.json`);
   const data = await response.json();
   const posts = prepareChamps(data);
-  return posts;
+  return champs;
 }
 
-function showChamps() {}
+function showChamps(ListOfChamps) {
+  document.querySelector("#champ-data").innerHTML = ""; // reset the content of section#posts
 
-function showChamp() {
+  for (const champ of listOfChamps) {
+    showPost(champ); // for every post object in listOfPosts, call showPost
+  }
+}
+
+function showChamp(champObject) {
   const champHTML = /*html*/ `
     <article class="grid-item">
         <img src="${champObject.image}">
@@ -32,11 +41,17 @@ function showChamp() {
         </div>
     </article>`;
   document.querySelector("#champ-data").insertAdjacentHTML("beforeend", champHTML);
+  document.querySelector("#champ-data article:last-child .btn-delete").addEventListener("click", deleteChampClicked);
+  document.querySelector("#champ-data article:last-child .btn-update").addEventListener("click", updateChampClicked);
   function openChampDialog() {}
 
-  function deleteChampClicked(params) {}
+  function deleteChampClicked(params) {
+    console.log("deleteChampClicked");
+  }
 
-  function updateChampClicked(params) {}
+  function updateChampClicked(params) {
+    console.log("updateChampClicked");
+  }
 
   async function viewChamp() {
     // muligt tilføjelse af update- og deletechamp hvis layout trænges
