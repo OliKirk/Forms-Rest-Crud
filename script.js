@@ -7,7 +7,10 @@ function initApp() {
   console.log("initApp is runing");
 }
 
-async function updateChampsGrid() {}
+async function updateChampsGrid() {
+  posts = await getChampsData();
+  showChamps();
+}
 
 async function getChampsData() {
   const response = await fetch(`${endpoint}/posts.json`)
