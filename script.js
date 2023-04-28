@@ -1,7 +1,8 @@
 "use strict";
 
 window.addEventListener("load", initApp);
-const endpoint = "https://my-api-database-ccaf8-default-rtdb.europe-west1.firebasedatabase.app/";
+const endpoint =
+  "https://my-api-database-ccaf8-default-rtdb.europe-west1.firebasedatabase.app/";
 let champs;
 
 function initApp() {
@@ -40,9 +41,15 @@ function showChamp(champObject) {
             <button class="delete-btn">Delete</button>
         </div>
     </article>`;
-  document.querySelector("#champ-data").insertAdjacentHTML("beforeend", champHTML);
-  document.querySelector("#champ-data article:last-child .btn-delete").addEventListener("click", deleteChampClicked);
-  document.querySelector("#champ-data article:last-child .btn-update").addEventListener("click", updateChampClicked);
+  document
+    .querySelector("#champ-data")
+    .insertAdjacentHTML("beforeend", champHTML);
+  document
+    .querySelector("#champ-data article:last-child .btn-delete")
+    .addEventListener("click", deleteChampClicked);
+  document
+    .querySelector("#champ-data article:last-child .btn-update")
+    .addEventListener("click", updateChampClicked);
   function openChampDialog() {}
 
   function deleteChampClicked(params) {
@@ -62,25 +69,37 @@ function prepareChamps() {}
 
 async function deleteChamp(id) {
   const response = await fetch(`${endpoint}/champs/${id}.json`, {
-<<<<<<< HEAD
-    method: "DELETE"    
-});
-if (response.ok) {
-    console.log("Champs successfully deleted from Firebase 🔥");
-=======
     method: "DELETE",
   });
   if (response.ok) {
-    console.log("Post successfully deleted from Firebase 🔥");
->>>>>>> 05cf4276c571a693dbf3600da9df67d95f88e093
+    console.log("Champs successfully deleted from Firebase 🔥");
+
     updateChampsGrid();
   }
 }
 
 function updateChamp() {}
 
-async function createChamp(navn, description, image, region, sex, species, role, type) {
-  const newChamp = { navn, description, image, region, sex, species, role, type };
+async function createChamp(
+  navn,
+  description,
+  image,
+  region,
+  sex,
+  species,
+  role,
+  type
+) {
+  const newChamp = {
+    navn,
+    description,
+    image,
+    region,
+    sex,
+    species,
+    role,
+    type,
+  };
   const champJson = JSON.stringify(newChamp);
   const response = await fetch(`${endpoint}/champs.json`, {
     method: "POST",
