@@ -13,7 +13,7 @@ async function updateChampsGrid() {
 }
 
 async function getChampsData() {
-  const response = await fetch(`${endpoint}/posts.json`)
+  const response = await fetch(`${endpoint}/posts.json`);
   const data = await response.json();
   const posts = prepareChamps(data);
   return posts;
@@ -22,6 +22,16 @@ async function getChampsData() {
 function showChamps() {}
 
 function showChamp() {
+  const champHTML = /*html*/ `
+    <article class="grid-item">
+        <img src="${champObject.image}">
+        <h2>${champObject.name}</h2>
+        <div class="btns">
+            <button class="update-btn">Update</button>
+            <button class="delete-btn">Delete</button>
+        </div>
+    </article>`;
+  document.querySelector("#champ-data").insertAdjacentHTML("beforeend", champHTML);
   function openChampDialog() {}
 
   function deleteChampClicked(params) {}
