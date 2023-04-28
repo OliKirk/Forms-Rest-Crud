@@ -9,7 +9,12 @@ function initApp() {
 
 async function updateChampsGrid() {}
 
-function getChampsData() {}
+async function getChampsData() {
+  const response = await fetch(`${endpoint}/posts.json`)
+  const data = await response.json();
+  const posts = prepareChamps(data);
+  return posts;
+}
 
 function showChamps() {}
 
