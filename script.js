@@ -67,7 +67,15 @@ function showChamp(champObject) {
   }
 }
 
-function prepareChamps() {}
+function prepareChamps(dataObject) {
+  const array = [];
+    for (const key in dataObject) {
+      const object = dataObject[key];
+      object.id = key;
+      array.push(object);
+    }
+    return array;
+}
 
 async function deleteChamp(id) {
   const response = await fetch(`${endpoint}/champs/${id}.json`, {
