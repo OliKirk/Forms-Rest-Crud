@@ -6,6 +6,7 @@ const endpoint =
 
 function initApp() {
   console.log("initApp is running 🎉");
+  updateChampsGrid();
 }
 
 async function updateChampsGrid() {
@@ -14,7 +15,8 @@ async function updateChampsGrid() {
 }
 
 async function getChampsData() {
-  const response = await fetch(`${endpoint}/posts.json`);
+  // VI ÆNDRER POSTS TIL CHAMPS NÅR VI OGSÅ GØR DET I VORES FIREBASE :)))
+  const response = await fetch(`${endpoint}/posts.json`)
   const data = await response.json();
   const posts = prepareChamps(data);
   return posts;
