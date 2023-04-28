@@ -62,12 +62,19 @@ function prepareChamps() {}
 
 async function deleteChamp(id) {
   const response = await fetch(`${endpoint}/champs/${id}.json`, {
+<<<<<<< HEAD
     method: "DELETE"    
 });
 if (response.ok) {
     console.log("Champs successfully deleted from Firebase 🔥");
+=======
+    method: "DELETE",
+  });
+  if (response.ok) {
+    console.log("Post successfully deleted from Firebase 🔥");
+>>>>>>> 05cf4276c571a693dbf3600da9df67d95f88e093
     updateChampsGrid();
-}
+  }
 }
 
 function updateChamp() {}
