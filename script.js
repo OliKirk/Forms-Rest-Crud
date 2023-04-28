@@ -15,7 +15,7 @@ async function updateChampsGrid() {
 
 async function getChampsData() {
   // VI ÆNDRER champs TIL CHAMPS NÅR VI OGSÅ GØR DET I VORES FIREBASE :)))
-  const response = await fetch(`${endpoint}/champs.json`)
+  const response = await fetch(`${endpoint}/champs.json`);
   const data = await response.json();
   const champs = prepareChamps(data);
   return champs;
@@ -25,7 +25,7 @@ function showChamps(ListOfChamps) {
   document.querySelector("#champ-data").innerHTML = ""; // reset the content of section#posts
 
   for (const champ of listOfChamps) {
-    showPost(champ); // for every post object in listOfPosts, call showPost
+    showChamp(champ); // for every post object in listOfPosts, call showPost
   }
 }
 
@@ -63,17 +63,17 @@ function deleteChamp() {}
 
 function updateChamp() {}
 
-async function createChamp(navn,description,image,region,sex,species,role,type) {
-  const newChamp = {navn,description,image,region,sex,species,role,type};
+async function createChamp(navn, description, image, region, sex, species, role, type) {
+  const newChamp = { navn, description, image, region, sex, species, role, type };
   const champJson = JSON.stringify(newChamp);
   const response = await fetch(`${endpoint}/champs.json`, {
-          method: "POST",
-          body: champJson,
-      });
-      if (response.ok) {
-          console.log("New champ succesfully added to Firebase 🔥");
-          updatechampsGrid();
-      }
+    method: "POST",
+    body: champJson,
+  });
+  if (response.ok) {
+    console.log("New champ succesfully added to Firebase 🔥");
+    updatechampsGrid();
+  }
 }
 
 function searchChamps() {}
