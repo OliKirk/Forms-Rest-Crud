@@ -2,6 +2,7 @@
 
 window.addEventListener("load", initApp);
 const endpoint = "https://my-api-database-ccaf8-default-rtdb.europe-west1.firebasedatabase.app/";
+let champs;
 
 function initApp() {
   console.log("initApp is running 🎉");
@@ -9,8 +10,8 @@ function initApp() {
 }
 
 async function updateChampsGrid() {
-  posts = await getChampsData();
-  showChamps();
+  champs = await getChampsData();
+  showChamps(champs);
 }
 
 async function getChampsData() {
@@ -21,7 +22,7 @@ async function getChampsData() {
   return champs;
 }
 
-function showChamps(ListOfChamps) {
+function showChamps(listOfChamps) {
   document.querySelector("#champ-data").innerHTML = ""; // reset the content of section#posts
 
   for (const champ of listOfChamps) {
@@ -64,7 +65,7 @@ async function deleteChamp(id) {
     method: "DELETE"    
 });
 if (response.ok) {
-    console.log("Post successfully deleted from Firebase 🔥");
+    console.log("Champs successfully deleted from Firebase 🔥");
     updateChampsGrid();
 }
 }
