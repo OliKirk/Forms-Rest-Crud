@@ -24,17 +24,16 @@ async function getChampsData() {
 function showChamps() {}
 
 function showChamp() {
-  const html = /*html*/`
-    <article class = "grid-item">
-    <img>
-    /*etcetc*/
-    <div class="btns">
-      <button class="btn-delete"></button>
-      <button class="btn-update"></button>
-    </div>
-    </article>
-  `
-
+  const champHTML = /*html*/ `
+    <article class="grid-item">
+        <img src="${champObject.image}">
+        <h2>${champObject.name}</h2>
+        <div class="btns">
+            <button class="update-btn">Update</button>
+            <button class="delete-btn">Delete</button>
+        </div>
+    </article>`;
+  document.querySelector("#champ-data").insertAdjacentHTML("beforeend", champHTML);
   function openChampDialog() {}
 
   function deleteChampClicked(params) {}
