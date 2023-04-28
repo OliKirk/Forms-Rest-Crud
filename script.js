@@ -1,7 +1,8 @@
 "use strict";
 
 window.addEventListener("load", initApp);
-const endpoint = "https://my-api-database-ccaf8-default-rtdb.europe-west1.firebasedatabase.app/";
+const endpoint =
+  "https://my-api-database-ccaf8-default-rtdb.europe-west1.firebasedatabase.app/";
 
 function initApp() {
   console.log("initApp is running 🎉");
@@ -33,7 +34,9 @@ function showChamp() {
             <button class="delete-btn">Delete</button>
         </div>
     </article>`;
-  document.querySelector("#champ-data").insertAdjacentHTML("beforeend", champHTML);
+  document
+    .querySelector("#champ-data")
+    .insertAdjacentHTML("beforeend", champHTML);
   function openChampDialog() {}
 
   function deleteChampClicked(params) {}
