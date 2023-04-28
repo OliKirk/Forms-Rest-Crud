@@ -4,7 +4,7 @@ window.addEventListener("load", initApp);
 const endpoint = "https://my-api-database-ccaf8-default-rtdb.europe-west1.firebasedatabase.app/";
 
 function initApp() {
-  console.log("initApp is runing");
+  console.log("initApp is running 🎉");
 }
 
 async function updateChampsGrid() {
