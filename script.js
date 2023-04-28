@@ -50,7 +50,15 @@ function showChamp() {
 
 function prepareChamps() {}
 
-function deleteChamp() {}
+async function deleteChamp(id) {
+  const response = await fetch(`${endpoint}/champs/${id}.json`, {
+    method: "DELETE"    
+});
+if (response.ok) {
+    console.log("Post successfully deleted from Firebase 🔥");
+    updateChampsGrid();
+}
+}
 
 function updateChamp() {}
 
