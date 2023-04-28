@@ -3,22 +3,21 @@
 window.addEventListener("load", initApp);
 const endpoint = "https://my-api-database-ccaf8-default-rtdb.europe-west1.firebasedatabase.app/";
 
-// skift post til champs
-
 function initApp() {
   console.log("initApp is running 🎉");
   updateChampsGrid();
 }
 
 async function updateChampsGrid() {
-  champs = await getChampsData();
-  showChamps(champs);
+  posts = await getChampsData();
+  showChamps();
 }
 
 async function getChampsData() {
-  const response = await fetch(`${endpoint}/posts.json`);
+  // VI ÆNDRER champs TIL CHAMPS NÅR VI OGSÅ GØR DET I VORES FIREBASE :)))
+  const response = await fetch(`${endpoint}/champs.json`)
   const data = await response.json();
-  const posts = prepareChamps(data);
+  const champs = prepareChamps(data);
   return champs;
 }
 
@@ -64,9 +63,20 @@ function deleteChamp() {}
 
 function updateChamp() {}
 
-function createChamp() {}
+async function createChamp(navn,description,image,region,sex,species,role,type) {
+  const newChamp = {navn,description,image,region,sex,species,role,type};
+  const champJson = JSON.stringify(newChamp);
+  const response = await fetch(`${endpoint}/champs.json`, {
+          method: "POST",
+          body: champJson,
+      });
+      if (response.ok) {
+          console.log("New champ succesfully added to Firebase 🔥");
+          updatechampsGrid();
+      }
+}
 
-function serchChamps() {}
+function searchChamps() {}
 
 function filterChamps() {}
 
