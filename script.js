@@ -1,8 +1,9 @@
 "use strict";
 
-window.addEventListener("load", initApp);
 const endpoint = "https://my-api-database-ccaf8-default-rtdb.europe-west1.firebasedatabase.app/";
 let champs;
+
+window.addEventListener("load", initApp);
 
 function initApp() {
   console.log("initApp is running 🎉");
