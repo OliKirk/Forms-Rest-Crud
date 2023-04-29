@@ -1,0 +1,34 @@
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.background-header {
+  background-color: purple;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 2em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background-image: url("../pictures/");
+  opacity: 1;
+  background-size: cover;
+}
+
+/* header .logo {
+  background-color: purple;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 2em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background-image: url("../pictures/");
+  opacity: 1;
+  background-size: cover;
+} */
