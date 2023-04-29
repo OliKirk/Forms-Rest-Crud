@@ -8,26 +8,11 @@ main {
 
 .background-main {
   background-image: url("../pictures/dragon.webp");
-  /* background-color: gray; */
+  background-color: gray;
   background-blend-mode: multiply;
   background-size: cover;
   background-repeat: repeat-y;
 }
-
-/* section {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  padding: 100px;
-}
-
-section img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-} */
 
 .grid-container {
   z-index: 999;
