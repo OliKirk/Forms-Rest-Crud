@@ -1,6 +1,7 @@
 "use strict";
 
-const endpoint = "https://my-api-database-ccaf8-default-rtdb.europe-west1.firebasedatabase.app/";
+const endpoint =
+  "https://my-api-database-ccaf8-default-rtdb.europe-west1.firebasedatabase.app/";
 let champs;
 
 window.addEventListener("load", initApp);
@@ -41,16 +42,22 @@ function showChamp(champObject) {
             <button class="delete-btn">Delete</button>
         </div>
     </article>`;
-  document.querySelector("#champ-data").insertAdjacentHTML("beforeend", champHTML);
-  document.querySelector("#champ-data article:last-child .delete-btn").addEventListener("click", deleteChampClicked);
-  document.querySelector("#champ-data article:last-child .update-btn").addEventListener("click", updateChampClicked);
+  document
+    .querySelector("#champ-data")
+    .insertAdjacentHTML("beforeend", champHTML);
+  document
+    .querySelector("#champ-data article:last-child .delete-btn")
+    .addEventListener("click", deleteChampClicked);
+  document
+    .querySelector("#champ-data article:last-child .update-btn")
+    .addEventListener("click", updateChampClicked);
   function openChampDialog() {}
 
   function deleteChampClicked(params) {
     console.log("deleteChampClicked");
   }
 
-  function updateChampClicked() {
+  function updateChampClicked(champObject) {
     console.log("updateChampClicked");
     const name = `${champObject.name} Uppdated`;
     const description = "Her er jeg";
@@ -60,7 +67,22 @@ function showChamp(champObject) {
     const species = "";
     const role = "";
     const type = "";
-    document.querySelector("#dialog-update-btn").addEventListener("click", updateChamp(champObject.id, name, description, image, region, sex, species, role, type));
+    document
+      .querySelector("#dialog-update-btn")
+      .addEventListener(
+        "click",
+        updateChamp(
+          champObject.id,
+          name,
+          description,
+          image,
+          region,
+          sex,
+          species,
+          role,
+          type
+        )
+      );
   }
 
   async function viewChamp() {
@@ -89,19 +111,49 @@ async function deleteChamp(id) {
   }
 }
 
-async function updateChamp(navn, description, image, region, sex, species, role, type) {
-  const champToUpdate = { navn, description, image, region, sex, species, role, type };
+async function updateChamp(
+  name,
+  description,
+  image,
+  region,
+  sex,
+  species,
+  role,
+  type
+) {
+  const champToUpdate = {
+    name,
+    description,
+    image,
+    region,
+    sex,
+    species,
+    role,
+    type,
+  };
   const json = JSON.stringify(champToUpdate);
-  const response = await fetch(`${endpoint}/champs/${id}.json`, { method: "PUT", bod: json });
+  const response = await fetch(`${endpoint}/champs/${id}.json`, {
+    method: "PUT",
+    bod: json,
+  });
 
   if (response.ok) {
     updateChampsGrid();
   }
 }
 
-async function createChamp(navn, description, image, region, sex, species, role, type) {
+async function createChamp(
+  name,
+  description,
+  image,
+  region,
+  sex,
+  species,
+  role,
+  type
+) {
   const newChamp = {
-    navn,
+    name,
     description,
     image,
     region,
