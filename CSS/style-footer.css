@@ -1,11 +1,6 @@
 footer {
+  background-color: white;
+  color: black;
+  padding: 1em;
   text-align: center;
-  padding: 10px;
-  background-position: center;
-}
-
-.background-footer {
-  background-image: url("../pictures/Different-Lanes-LoL.png");
-  opacity: 1;
-  background-size: cover;
 }
