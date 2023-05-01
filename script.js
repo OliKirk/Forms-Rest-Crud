@@ -60,7 +60,7 @@ function showChamp(champObject) {
     const species = "";
     const role = "";
     const type = "";
-    updateChamp(champObject.id, name, description, image, region, sex, species, role, type);
+    document.querySelector("#dialog-update-btn").addEventListener("click", updateChamp(champObject.id, name, description, image, region, sex, species, role, type));
   }
 
   async function viewChamp() {
