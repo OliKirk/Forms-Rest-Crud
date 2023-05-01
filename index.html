@@ -18,11 +18,62 @@
       <section id="champ-data" class="grid-container"></section>
       <dialog id="dialog-update-champ">
         <h2>Update Champ</h2>
-        <form id="form-update-champ" method="put">
-          <button>Update Champ</button>
-        </form>
+        <form method="post" id="form-create-champ">
+          <label for="name">Name:</label
+          ><input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Write new name here"
+          />
+          <label for="image">Image:</label
+          ><input
+            type="url"
+            id="dialog-image"
+            name="image"
+            placeholder="Paste new image URL here"
+          />
+          <label for="description">Description:</label
+          ><input
+            type="text"
+            name="description"
+            id="description"
+            placeholder="Write new description here"
+          />
+          <label for="region">Region:</label
+          ><input
+            type="text"
+            id="region"
+            name="region"
+            placeholder="Write new region here"
+          />
+          <label for="sex">Sex:</label
+          ><input type="text" id="sex" name="sex" placeholder="Put sex here" />
+          <label for="species">Species</label
+          ><input
+            type="text"
+            id="species"
+            name="species"
+            placeholder="Put new species here"
+          />
+          <label for="role">Role:</label
+          ><input
+            type="text"
+            id="role"
+            name="role"
+            placeholder="Put new role(s) here"
+          />
+          <label for="type">Type:</label
+          ><input
+            type="text"
+            id="type"
+            name="type"
+            placeholder="Write new type(s) here"
+          />
+
+          <button>Update champ</button> <button>Cancel</button>
       </dialog>
-      <dialog id="dialog-create-champ" open>
+      <dialog id="dialog-create-champ">
         <h2>Create new Champ</h2>
         <form method="post" id="form-create-champ">
           <label for="name">Name:</label
@@ -77,7 +128,7 @@
             placeholder="Write type(s) here"
           />
 
-          <button>Create champ</button>
+          <button>Create champ</button><button>Cancel</button>
         </form>
       </dialog>
       <dialog id="dialog-delete-champ">
