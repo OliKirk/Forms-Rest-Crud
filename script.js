@@ -1,7 +1,6 @@
 "use strict";
 
-const endpoint =
-  "https://my-api-database-ccaf8-default-rtdb.europe-west1.firebasedatabase.app/";
+const endpoint = "https://my-api-database-ccaf8-default-rtdb.europe-west1.firebasedatabase.app/";
 let champs;
 
 window.addEventListener("load", initApp);
@@ -9,6 +8,7 @@ window.addEventListener("load", initApp);
 function initApp() {
   console.log("initApp is running 🎉");
   updateChampsGrid();
+  // document.querySelector("#dialog-update-btn").addEventListener("click", updateChamp());
 }
 
 async function updateChampsGrid() {
@@ -42,22 +42,33 @@ function showChamp(champObject) {
             <button class="delete-btn">Delete</button>
         </div>
     </article>`;
-  document
-    .querySelector("#champ-data")
-    .insertAdjacentHTML("beforeend", champHTML);
-  document
-    .querySelector("#champ-data article:last-child .delete-btn")
-    .addEventListener("click", deleteChampClicked);
-  document
-    .querySelector("#champ-data article:last-child .update-btn")
-    .addEventListener("click", updateChampClicked);
-  function openChampDialog() {}
+  document.querySelector("#champ-data").insertAdjacentHTML("beforeend", champHTML);
+  document.querySelector("#champ-data article:last-child .delete-btn").addEventListener("click", deleteChampClicked);
+  document.querySelector("#champ-data article:last-child .update-btn").addEventListener("click", updateChampClicked);
+
+  function openChampDialog() {
+    const myHTML = /*HTML*/ `<article id="champinfo">
+    <h2>Name: ${champ.name}</h2>
+    <p>description: ${champ.description}</p>
+    <image class="champinfo-img" src="${champ.image}">
+    <p>region: ${champ.region}</p>
+    <p>sex: ${champ.sex}</p>
+    <p>species: ${champ.species}</p>
+    <p>role: ${champ.role}</p>
+    <p>type: ${champ.type}</p>
+<button id="close-btn">Close</button>
+    </article>`;
+    document.querySelector("#champdetails").insertAdjacentHTML("beforeend", myHTML);
+    document.querySelector("#champdetails").showmodal();
+    document.querySelector("#close-btn").addEventListener("click", closeDialog);
+  }
 
   function deleteChampClicked(params) {
     console.log("deleteChampClicked");
   }
 
   function updateChampClicked(champObject) {
+    document.querySelector("#dialog-update-champ").showModal();
     console.log("updateChampClicked");
     const name = `${champObject.name} Uppdated`;
     const description = "Her er jeg";
@@ -67,22 +78,9 @@ function showChamp(champObject) {
     const species = "";
     const role = "";
     const type = "";
-    document
-      .querySelector("#dialog-update-btn")
-      .addEventListener(
-        "click",
-        updateChamp(
-          champObject.id,
-          name,
-          description,
-          image,
-          region,
-          sex,
-          species,
-          role,
-          type
-        )
-      );
+    document.querySelector("#dialog-update-btn").addEventListener("click", function () {
+      updateChamp(champ);
+    });
   }
 
   async function viewChamp() {
@@ -111,16 +109,7 @@ async function deleteChamp(id) {
   }
 }
 
-async function updateChamp(
-  name,
-  description,
-  image,
-  region,
-  sex,
-  species,
-  role,
-  type
-) {
+async function updateChamp(name, description, image, region, sex, species, role, type) {
   const champToUpdate = {
     name,
     description,
@@ -134,24 +123,19 @@ async function updateChamp(
   const json = JSON.stringify(champToUpdate);
   const response = await fetch(`${endpoint}/champs/${id}.json`, {
     method: "PUT",
-    bod: json,
+    body: json,
   });
+
+  // function prepareUpdateChampsData(champ) {
+  // const name
+  // }
 
   if (response.ok) {
     updateChampsGrid();
   }
 }
 
-async function createChamp(
-  name,
-  description,
-  image,
-  region,
-  sex,
-  species,
-  role,
-  type
-) {
+async function createChamp(name, description, image, region, sex, species, role, type) {
   const newChamp = {
     name,
     description,
