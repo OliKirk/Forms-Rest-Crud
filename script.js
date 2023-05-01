@@ -1,6 +1,5 @@
 "use strict";
 
-window.addEventListener("load", initApp);
 const endpoint =
   "https://my-api-database-ccaf8-default-rtdb.europe-west1.firebasedatabase.app/";
 let champs;
@@ -47,10 +46,10 @@ function showChamp(champObject) {
     .querySelector("#champ-data")
     .insertAdjacentHTML("beforeend", champHTML);
   document
-    .querySelector("#champ-data article:last-child .btn-delete")
+    .querySelector("#champ-data article:last-child .delete-btn")
     .addEventListener("click", deleteChampClicked);
   document
-    .querySelector("#champ-data article:last-child .btn-update")
+    .querySelector("#champ-data article:last-child .update-btn")
     .addEventListener("click", updateChampClicked);
   function openChampDialog() {}
 
@@ -69,12 +68,12 @@ function showChamp(champObject) {
 
 function prepareChamps(dataObject) {
   const array = [];
-    for (const key in dataObject) {
-      const object = dataObject[key];
-      object.id = key;
-      array.push(object);
-    }
-    return array;
+  for (const key in dataObject) {
+    const object = dataObject[key];
+    object.id = key;
+    array.push(object);
+  }
+  return array;
 }
 
 async function deleteChamp(id) {
