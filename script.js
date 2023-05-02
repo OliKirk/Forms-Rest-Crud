@@ -1,6 +1,7 @@
 "use strict";
 
-const endpoint = "https://my-api-database-ccaf8-default-rtdb.europe-west1.firebasedatabase.app/";
+const endpoint =
+  "https://my-api-database-ccaf8-default-rtdb.europe-west1.firebasedatabase.app/";
 let champs;
 
 window.addEventListener("load", initApp);
@@ -42,15 +43,24 @@ function showChamp(champObject) {
             <button class="delete-btn">Delete</button>
         </div>
     </article>`;
-  document.querySelector("#champ-data").insertAdjacentHTML("beforeend", champHTML);
-  document.querySelector("#champ-data article:last-child .delete-btn").addEventListener("click", deleteChampClicked);
-  document.querySelector("#champ-data article:last-child .update-btn").addEventListener("click", updateChampClicked);
+  document
+    .querySelector("#champ-data")
+    .insertAdjacentHTML("beforeend", champHTML);
+  document
+    .querySelector("#champ-data article:last-child .delete-btn")
+    .addEventListener("click", deleteChampClicked);
+  document
+    .querySelector("#champ-data article:last-child .update-btn")
+    .addEventListener("click", updateChampClicked);
+  document
+    .querySelector("#champ-data article:last-child")
+    .addEventListener("click", openChampDialog);
 
-  function openChampDialog() {
-    const myHTML = /*HTML*/ `<article id="champinfo">
+  function openChampDialog(champ) {
+    const myHTML = /*HTML*/ `<article id="champinfo"> 
     <h2>Name: ${champ.name}</h2>
+    <img class="champinfo-img" src="${champ.image}">
     <p>description: ${champ.description}</p>
-    <image class="champinfo-img" src="${champ.image}">
     <p>region: ${champ.region}</p>
     <p>sex: ${champ.sex}</p>
     <p>species: ${champ.species}</p>
@@ -58,8 +68,10 @@ function showChamp(champObject) {
     <p>type: ${champ.type}</p>
 <button id="close-btn">Close</button>
     </article>`;
-    document.querySelector("#champdetails").insertAdjacentHTML("beforeend", myHTML);
-    document.querySelector("#champdetails").showmodal();
+    document
+      .querySelector("#dialog-detail-view")
+      .insertAdjacentHTML("beforeend", myHTML);
+    document.querySelector("#dialog-detail-view").showModal();
     document.querySelector("#close-btn").addEventListener("click", closeDialog);
   }
 
@@ -78,9 +90,11 @@ function showChamp(champObject) {
     const species = "";
     const role = "";
     const type = "";
-    document.querySelector("#dialog-update-btn").addEventListener("click", function () {
-      updateChamp(champ);
-    });
+    document
+      .querySelector("#dialog-update-btn")
+      .addEventListener("click", function () {
+        updateChamp(champ);
+      });
   }
 
   async function viewChamp() {
@@ -109,7 +123,16 @@ async function deleteChamp(id) {
   }
 }
 
-async function updateChamp(name, description, image, region, sex, species, role, type) {
+async function updateChamp(
+  name,
+  description,
+  image,
+  region,
+  sex,
+  species,
+  role,
+  type
+) {
   const champToUpdate = {
     name,
     description,
@@ -135,7 +158,16 @@ async function updateChamp(name, description, image, region, sex, species, role,
   }
 }
 
-async function createChamp(name, description, image, region, sex, species, role, type) {
+async function createChamp(
+  name,
+  description,
+  image,
+  region,
+  sex,
+  species,
+  role,
+  type
+) {
   const newChamp = {
     name,
     description,
