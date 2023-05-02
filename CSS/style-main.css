@@ -1,14 +1,13 @@
 main {
   background: wheat;
   animation: fadeIn 0.4s;
-  padding: 137px 0 0;
+  padding: 200px 0 0;
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
   }
-
   to {
     opacity: 1;
   }
