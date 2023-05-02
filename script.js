@@ -1,7 +1,6 @@
 "use strict";
 
-const endpoint =
-  "https://my-api-database-ccaf8-default-rtdb.europe-west1.firebasedatabase.app/";
+const endpoint = "https://my-api-database-ccaf8-default-rtdb.europe-west1.firebasedatabase.app/";
 let champs;
 
 window.addEventListener("load", initApp);
@@ -36,25 +35,19 @@ function showChamps(listOfChamps) {
 function showChamp(champ) {
   const champHTML = /*html*/ `
     <article class="grid-item">
+        <div class ="body">        
         <img src=${champ.image}>
         <h2>${champ.name}</h2>
+        </div>
         <div class="btns">
             <button class="update-btn">Update</button>
             <button class="delete-btn">Delete</button>
         </div>
     </article>`;
-  document
-    .querySelector("#champ-data")
-    .insertAdjacentHTML("beforeend", champHTML);
-  document
-    .querySelector("#champ-data article:last-child .delete-btn")
-    .addEventListener("click", deleteChampClicked);
-  document
-    .querySelector("#champ-data article:last-child .update-btn")
-    .addEventListener("click", updateChampClicked);
-  document
-    .querySelector("#champ-data article:last-child")
-    .addEventListener("click", openChampDialog);
+  document.querySelector("#champ-data").insertAdjacentHTML("beforeend", champHTML);
+  document.querySelector("#champ-data article:last-child .delete-btn").addEventListener("click", deleteChampClicked);
+  document.querySelector("#champ-data article:last-child .update-btn").addEventListener("click", updateChampClicked);
+  document.querySelector("#champ-data article:last-child .body").addEventListener("click", openChampDialog);
 
   function openChampDialog() {
     console.log("Open dialog / detail view");
@@ -69,9 +62,7 @@ function showChamp(champ) {
     <p>type: ${champ.type}</p>
 <button id="close-btn">Close</button>
     </article>`;
-    document
-      .querySelector("#dialog-detail-view")
-      .insertAdjacentHTML("beforeend", myHTML);
+    document.querySelector("#dialog-detail-view").insertAdjacentHTML("beforeend", myHTML);
     document.querySelector("#dialog-detail-view").showModal();
     document.querySelector("#close-btn").addEventListener("click", closeDialog);
   }
@@ -97,11 +88,9 @@ function showChamp(champ) {
     const species = "";
     const role = "";
     const type = "";
-    document
-      .querySelector("#dialog-update-btn")
-      .addEventListener("click", function () {
-        updateChamp(champ);
-      });
+    document.querySelector("#dialog-update-btn").addEventListener("click", function () {
+      updateChamp(champ);
+    });
   }
 
   /* async function viewChamp() {
@@ -130,16 +119,7 @@ async function deleteChamp(id) {
   }
 }
 
-async function updateChamp(
-  name,
-  description,
-  image,
-  region,
-  sex,
-  species,
-  role,
-  type
-) {
+async function updateChamp(name, description, image, region, sex, species, role, type) {
   const champToUpdate = {
     name,
     description,
@@ -165,16 +145,7 @@ async function updateChamp(
   }
 }
 
-async function createChamp(
-  name,
-  description,
-  image,
-  region,
-  sex,
-  species,
-  role,
-  type
-) {
+async function createChamp(name, description, image, region, sex, species, role, type) {
   const newChamp = {
     name,
     description,
