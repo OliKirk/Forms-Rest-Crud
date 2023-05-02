@@ -56,7 +56,8 @@ function showChamp(champ) {
     .querySelector("#champ-data article:last-child")
     .addEventListener("click", openChampDialog);
 
-  function openChampDialog(champ) {
+  function openChampDialog() {
+    console.log("Open dialog / detail view");
     const myHTML = /*HTML*/ `<article id="champinfo"> 
     <h2>Name: ${champ.name}</h2>
     <img class="champinfo-img" src=${champ.image}>
@@ -82,6 +83,7 @@ function showChamp(champ) {
 
   function deleteChampClicked(params) {
     console.log("deleteChampClicked");
+    document.querySelector("#dialog-delete-champ").showModal();
   }
 
   function updateChampClicked(champObject) {
@@ -102,9 +104,9 @@ function showChamp(champ) {
       });
   }
 
-  async function viewChamp() {
+  /* async function viewChamp() {
     // muligt tilføjelse af update- og deletechamp hvis layout trænges
-  }
+  } */
 }
 
 function prepareChamps(dataObject) {
