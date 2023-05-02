@@ -33,11 +33,11 @@ function showChamps(listOfChamps) {
   }
 }
 
-function showChamp(champObject) {
+function showChamp(champ) {
   const champHTML = /*html*/ `
     <article class="grid-item">
-        <img src="${champObject.image}">
-        <h2>${champObject.name}</h2>
+        <img src=${champ.image}>
+        <h2>${champ.name}</h2>
         <div class="btns">
             <button class="update-btn">Update</button>
             <button class="delete-btn">Delete</button>
@@ -59,7 +59,7 @@ function showChamp(champObject) {
   function openChampDialog(champ) {
     const myHTML = /*HTML*/ `<article id="champinfo"> 
     <h2>Name: ${champ.name}</h2>
-    <img class="champinfo-img" src="${champ.image}">
+    <img class="champinfo-img" src=${champ.image}>
     <p>description: ${champ.description}</p>
     <p>region: ${champ.region}</p>
     <p>sex: ${champ.sex}</p>
