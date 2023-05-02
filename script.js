@@ -74,6 +74,11 @@ function showChamp(champObject) {
     document.querySelector("#dialog-detail-view").showModal();
     document.querySelector("#close-btn").addEventListener("click", closeDialog);
   }
+  function closeDialog() {
+    console.log("closeDialog");
+    document.querySelector("#dialog-detail-view").close();
+    document.querySelector("#champinfo").remove();
+  }
 
   function deleteChampClicked(params) {
     console.log("deleteChampClicked");
