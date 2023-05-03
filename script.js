@@ -14,6 +14,8 @@ function initApp() {
   document.querySelector("#form-delete-champ").addEventListener("submit", deleteChampClicked);
   document.querySelector("#form-delete-champ .btn-cancel").addEventListener("click", deleteCancelClicked); // filter / imput
   document.querySelector("#form-update-champ").addEventListener("submit", updateChampClicked);
+  // document.querySelector("#form-update-champ .btn-cancel").addEventListener("click", updateCancelClicked);
+
   document.querySelector("#select-sort-by").addEventListener("change", sortByChanged);
   document.querySelector("#input-search").addEventListener("keyup", inputSearchChanged);
   document.querySelector("#input-search").addEventListener("search", inputSearchChanged);
@@ -134,6 +136,10 @@ function deleteCancelClicked() {
 
 function createCancelClicked() {
   document.querySelector("#dialog-create-champ").close();
+}
+
+function updateCancelClicked() {
+  document.querySelector("#dialog-update-champ").close();
 }
 
 async function createChampClicked(event) {

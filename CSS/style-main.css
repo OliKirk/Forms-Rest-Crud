@@ -101,7 +101,7 @@ button {
   background-color: rebeccapurple;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  padding: 0.5em 1em;
+  padding: 1em 1em;
   width: 100%;
   max-width: 380px;
   display: grid;
