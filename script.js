@@ -187,18 +187,18 @@ function sortByChanged(event) {
   const selectedValue = event.target.value;
 
   if (selectedValue === "title") {
-      posts.sort(compareTitle);
+      champs.sort(compareTitle);
   } else if (selectedValue === "body") {
-      posts.sort(compareBody);
+      champs.sort(compareBody);
   }
 
-  showPosts(champs);
+  showChamps(champs);
 }
 
 function inputSearchChanged(event) {
   const value = event.target.value;
   const champsShow = searchPosts(value);
-  showPosts(champsShow);
+  showChamps(champsShow);
 }
 
 function compareTitle(champ1, champ2) {
