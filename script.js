@@ -80,6 +80,7 @@ function showChamp(champ) {
     document.querySelector("#champinfo").remove();
   }
   function updateClicked() {
+    console.log("update clicked")
     const updateForm = document.querySelector("#form-update-champ"); // reference to update form in dialog
     updateForm.name.value = champ.name; // set title input in update form from post title
     updateForm.description.value = champ.description; // set body input in update form post body
@@ -102,6 +103,7 @@ function showChamp(champ) {
 }
 
 function updateChampClicked(event) {
+  console.log("update champ clicked")
   const form = event.target;
   const name = form.name.value;
   const description = form.description.value;
