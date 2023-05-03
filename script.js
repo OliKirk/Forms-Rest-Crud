@@ -8,28 +8,14 @@ window.addEventListener("load", initApp);
 function initApp() {
   console.log("initApp is running 🎉");
   updateChampsGrid();
-  // document.querySelector("#dialog-update-btn").addEventListener("click", updateChamp());
-document
-.querySelector("#create-champ-btn")
-.addEventListener("click", showCreateChampDialog)
-document
-.querySelector("#form-create-champ")
-.addEventListener("submit", createChampClicked)
-  document
-  .querySelector("#form-delete-champ")
-  .addEventListener("submit", deleteChampClicked);
-  document
-  .querySelector("#form-delete-champ .btn-cancel")
-  .addEventListener("click", deleteCancelClicked);  // filter / imput
-  document
-  .querySelector("#select-sort-by")
-  .addEventListener("change", sortByChanged);
-  document
-  .querySelector("#input-search")
-  .addEventListener("keyup", inputSearchChanged);
-  document
-  .querySelector("#input-search")
-  .addEventListener("search", inputSearchChanged);
+  document.querySelector("#create-champ-btn").addEventListener("click", showCreateChampDialog)
+  document.querySelector("#form-create-champ").addEventListener("submit", createChampClicked)
+  document.querySelector("#form-delete-champ").addEventListener("submit", deleteChampClicked);
+  document.querySelector("#form-delete-champ .btn-cancel").addEventListener("click", deleteCancelClicked);  // filter / imput
+  document.querySelector("#form-update-champ").addEventListener("submit", updateChampClicked);
+  document.querySelector("#select-sort-by").addEventListener("change", sortByChanged);
+  document.querySelector("#input-search").addEventListener("keyup", inputSearchChanged);
+  document.querySelector("#input-search").addEventListener("search", inputSearchChanged);
 }
 
 async function updateChampsGrid() {
@@ -99,26 +85,39 @@ function showChamp(champ) {
     document.querySelector("#form-delete-champ").setAttribute("data-id", champ.id);
     document.querySelector("#dialog-delete-champ").showModal();
   }
-
-  function updateChampClicked(champObject) {
-    document.querySelector("#dialog-update-champ").showModal();
-    console.log("updateChampClicked");
-    const name = `${champObject.name} Uppdated`;
-    const description = "Her er jeg";
-    const image = "";
-    const region = "";
-    const sex = "";
-    const species = "";
-    const role = "";
-    const type = "";
-    document.querySelector("#dialog-update-btn").addEventListener("click", function () {
-      updateChamp(champ);
-    });
-  }
-  /* async function viewChamp() {
-    // muligt tilføjelse af update- og deletechamp hvis layout trænges
-  } */
 }
+
+function updateChampClicked(event) {
+  const form = event.target;
+  const name = form.name.value;
+  const description = form.description.value;
+  const image = form.image.value;
+  const region = form.region.value;
+  const sex = form.sex.value;
+  const species = form.species.value;
+  const role = form.role.value;
+  const type = form.type.value;
+  const id = form.getAttribute("data-id");
+  document.querySelector("#dialog-update-btn").addEventListener("click", function () {
+  updateChamp(id, name, description, image, region, sex, species, role, type);
+  });
+}
+  // document.querySelector("#dialog-update-champ").showModal();
+  // console.log("updateChampClicked");
+  // const name = `${champObject.name} Uppdated`;
+  // const description = "Her er jeg";
+  // const image = "";
+  // const region = "";
+  // const sex = "";
+  // const species = "";
+  // const role = "";
+  // const type = "";
+  // document.querySelector("#dialog-update-btn").addEventListener("click", function () {
+  //   updateChamp(champ);
+  // });
+/* async function viewChamp() {
+  // muligt tilføjelse af update- og deletechamp hvis layout trænges
+} */
 
 function showCreateChampDialog() {
   console.log("create champ clicked");
@@ -170,7 +169,7 @@ async function deleteChamp(id) {
   }
 }
 
-async function updateChamp(name, description, image, region, sex, species, role, type) {
+async function updateChamp(id, name, description, image, region, sex, species, role, type) {
   const champToUpdate = {
     name,
     description,
@@ -192,6 +191,7 @@ async function updateChamp(name, description, image, region, sex, species, role,
   // }
 
   if (response.ok) {
+    console.log("Champ succesfully updated in Firebase 🔥");
     updateChampsGrid();
   }
 }
