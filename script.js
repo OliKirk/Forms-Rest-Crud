@@ -10,25 +10,27 @@ function initApp() {
   updateChampsGrid();
   // document.querySelector("#dialog-update-btn").addEventListener("click", updateChamp());
 document
-.querySelector("#create-champ-btn")
-.addEventListener("click", showCreateChampDialog)
+  .querySelector("#create-champ-btn")
+  .addEventListener("click", showCreateChampDialog)
 document
-.querySelector("#form-create-champ")
-.addEventListener("submit", createChampClicked)
-document.querySelector("#create-champ-cancel").addEventListener("click", createCancelClicked)
-  document
+  .querySelector("#form-create-champ")
+  .addEventListener("submit", createChampClicked)
+document
+  .querySelector("#create-champ-cancel")
+  .addEventListener("click", createCancelClicked)
+document
   .querySelector("#form-delete-champ")
   .addEventListener("submit", deleteChampClicked);
-  document
+document
   .querySelector("#form-delete-champ .btn-cancel")
   .addEventListener("click", deleteCancelClicked);  // filter / imput
-  document
+document
   .querySelector("#select-sort-by")
   .addEventListener("change", sortByChanged);
-  document
+document
   .querySelector("#input-search")
   .addEventListener("keyup", inputSearchChanged);
-  document
+document
   .querySelector("#input-search")
   .addEventListener("search", inputSearchChanged);
 }
