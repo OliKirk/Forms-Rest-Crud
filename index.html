@@ -20,13 +20,13 @@
         <label for="select-sort-by">Sort by:
             <select id="select-sort-by">
                 <option value="" selected>Not selected</option>
-                <option value="title">Title</option>
-                <option value="body">Body</option>
+                <option value="name">Name</option>
+                <option value="role">Role</option>
             </select>
         </label>
         <div>
             <label for="input-search">Search:</label>
-            <input type="search" id="input-search" placeholder="Search by title">
+            <input type="search" id="input-search" placeholder="Search by name">
         </div>
     </section>
     <section id="champs" class="grid-container"></section>
@@ -86,6 +86,7 @@
             id="role"
             name="role"
             placeholder="Put role(s) here"
+            required
           /><br>
           <label for="type">Type:</label
           ><input
@@ -114,6 +115,7 @@
             name="name"
             id="name"
             placeholder="Write new name here"
+            required
           />
           <label for="image">Image:</label
           ><input
@@ -151,6 +153,7 @@
             id="role"
             name="role"
             placeholder="Put new role(s) here"
+            required
           />
           <label for="type">Type:</label
           ><input

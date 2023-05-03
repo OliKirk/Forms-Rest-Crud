@@ -229,12 +229,11 @@ function searchChamps(searchValue) {
 function sortByChanged(event) {
   const selectedValue = event.target.value;
 
-  if (selectedValue === "title") {
-    champs.sort(compareTitle);
-  } else if (selectedValue === "body") {
-    champs.sort(compareBody);
+  if (selectedValue === "name") {
+    champs.sort(compareName);
+  } else if (selectedValue === "role") {
+    champs.sort(compareRole);
   }
-
   showChamps(champs);
 }
 
@@ -244,10 +243,11 @@ function inputSearchChanged(event) {
   showChamps(champsShow);
 }
 
-function compareTitle(champ1, champ2) {
-  return champ1.title.localeCompare(champ2.title);
+function compareName(champ1, champ2) {
+  console.log("compare name")
+  return champ1.name.localeCompare(champ2.name);
 }
 
-function compareBody(champ1, champ2) {
-  return champ1.body.localeCompare(champ2.body);
+function compareRole(champ1, champ2) {
+  return champ1.role.localeCompare(champ2.role);
 }
