@@ -10,14 +10,35 @@
     <link rel="stylesheet" href="css/style-body.css" />
     <title>Forms, Rest and Crud</title>
   </head>
+
   <body>
     <header class="background-header">
       <h1 href="#" class="">League Of Legends Champions</h1>
-      <button id="create-champ-btn">Create new champ</button>
+      <button>Create new champ</button>
+
+      <section class="tools-grid">
+        <label for="select-sort-by">Sort by:
+            <select id="select-sort-by">
+                <option value="" selected>Not selected</option>
+                <option value="title">Title</option>
+                <option value="body">Body</option>
+            </select>
+        </label>
+        <div>
+            <label for="input-search">Search:</label>
+            <input type="search" id="input-search" placeholder="Search by title">
+        </div>
+    </section>
+    <section id="posts" class="grid-container"></section>
+
     </header>
+
     <main class="background-main">
+
       <section id="champ-data" class="grid-container"></section>
+
       <dialog id="dialog-detail-view"></dialog>
+
       <dialog id="dialog-update-champ">
         <h2>Update Champ</h2>
         <form method="post" id="form-update-champ">

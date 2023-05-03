@@ -74,7 +74,7 @@ function showChamp(champ) {
     document.querySelector("#champinfo").remove();
   }
 
-  function deleteChampClicked(params) {
+  function deleteChampClicked() {
     console.log("deleteChampClicked");
     document.querySelector("#dialog-delete-champ").showModal();
   }
@@ -191,8 +191,44 @@ async function createChamp(name, description, image, region, sex, species, role,
   /* return response */
 }
 
-function searchChamps() {}
 
-function filterChamps() {}
+// ============= Filter / sort by ===============
 
-function closeChampDialog() {}
+function searchChamps() {
+  searchValue = searchValue.toLowerCase();
+
+  const results = champs.filter(checkTitle);
+
+  function checkTitle(champ) {
+      const title = champ.title.toLowerCase();
+      return title.includes(searchValue);
+  }
+
+  return results;
+}
+
+function sortByChanged(event) {
+  const selectedValue = event.target.value;
+
+  if (selectedValue === "title") {
+      champs.sort(compareTitle);
+  } else if (selectedValue === "body") {
+      champs.sort(compareBody);
+  }
+
+  showChamps(champs);
+}
+
+function inputSearchChanged(event) {
+  const value = event.target.value;
+  const champsShow = searchPosts(value);
+  showChamps(champsShow);
+}
+
+function compareTitle(champ1, champ2) {
+  return champ1.title.localeCompare(champ2.title);
+}
+
+function compareBody(champ1, champ2) {
+  return champ1.body.localeCompare(champ2.body);
+}
