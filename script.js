@@ -19,7 +19,7 @@ function initApp() {
 }
 
 async function updateChampsGrid() {
-  console.log("update grid")
+  console.log("update grid");
   champs = await getChampsData();
   showChamps(champs);
 }
@@ -60,12 +60,12 @@ function showChamp(champ) {
     const myHTML = /*HTML*/ `<article id="champinfo"> 
     <h2>Name: ${champ.name}</h2>
     <img class="champinfo-img" src=${champ.image}>
-    <p>description: ${champ.description}</p>
-    <p>region: ${champ.region}</p>
-    <p>sex: ${champ.sex}</p>
-    <p>species: ${champ.species}</p>
-    <p>role: ${champ.role}</p>
-    <p>type: ${champ.type}</p>
+    <p>Description: ${champ.description}</p>
+    <p>Region: ${champ.region}</p>
+    <p>Sex: ${champ.sex}</p>
+    <p>Species: ${champ.species}</p>
+    <p>Role: ${champ.role}</p>
+    <p>Type: ${champ.type}</p>
 <button id="close-btn">Close</button>
     </article>`;
     document.querySelector("#dialog-detail-view").insertAdjacentHTML("beforeend", myHTML);
@@ -112,7 +112,7 @@ function updateChampClicked(event) {
   const role = form.role.value;
   const type = form.type.value;
   const id = form.getAttribute("data-id");
-updateChamp(id, name, description, image, region, sex, species, role, type);
+  updateChamp(id, name, description, image, region, sex, species, role, type);
 }
 
 function showCreateChampDialog() {
@@ -169,7 +169,7 @@ async function deleteChamp(id) {
 }
 
 async function updateChamp(id, name, description, image, region, sex, species, role, type) {
-  console.log("update champ")
+  console.log("update champ");
   const champToUpdate = {
     name,
     description,
@@ -185,10 +185,10 @@ async function updateChamp(id, name, description, image, region, sex, species, r
     method: "PUT",
     body: champJson,
   });
-/* return response; */
+  /* return response; */
   if (response.ok) {
     updateChampsGrid();
-  } 
+  }
 }
 
 async function createChamp(name, description, image, region, sex, species, role, type) {
@@ -244,7 +244,7 @@ function inputSearchChanged(event) {
 }
 
 function compareName(champ1, champ2) {
-  console.log("compare name")
+  console.log("compare name");
   return champ1.name.localeCompare(champ2.name);
 }
 
