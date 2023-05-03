@@ -8,14 +8,28 @@ window.addEventListener("load", initApp);
 function initApp() {
   console.log("initApp is running 🎉");
   updateChampsGrid();
-  document.querySelector("#create-champ-btn").addEventListener("click", showCreateChampDialog)
-  document.querySelector("#form-create-champ").addEventListener("submit", createChampClicked)
-  document.querySelector("#form-delete-champ").addEventListener("submit", deleteChampClicked);
-  document.querySelector("#form-delete-champ .btn-cancel").addEventListener("click", deleteCancelClicked);  // filter / imput
-  document.querySelector("#form-update-champ").addEventListener("submit", updateChampClicked);
-  document.querySelector("#select-sort-by").addEventListener("change", sortByChanged);
-  document.querySelector("#input-search").addEventListener("keyup", inputSearchChanged);
-  document.querySelector("#input-search").addEventListener("search", inputSearchChanged);
+  // document.querySelector("#dialog-update-btn").addEventListener("click", updateChamp());
+document
+.querySelector("#create-champ-btn")
+.addEventListener("click", showCreateChampDialog)
+document
+.querySelector("#form-create-champ")
+.addEventListener("submit", createChampClicked)
+  document
+  .querySelector("#form-delete-champ")
+  .addEventListener("submit", deleteChampClicked);
+  document
+  .querySelector("#form-delete-champ .btn-cancel")
+  .addEventListener("click", deleteCancelClicked);  // filter / imput
+  document
+  .querySelector("#select-sort-by")
+  .addEventListener("change", sortByChanged);
+  document
+  .querySelector("#input-search")
+  .addEventListener("keyup", inputSearchChanged);
+  document
+  .querySelector("#input-search")
+  .addEventListener("search", inputSearchChanged);
 }
 
 async function updateChampsGrid() {
@@ -126,6 +140,9 @@ function showCreateChampDialog() {
 
 function deleteCancelClicked() {
   document.querySelector("#dialog-delete-champ").close(); // close dialog
+}
+function createCancelClicked(){
+  document.querySelector("#dialog-create-champ").close()
 }
 
 async function createChampClicked(event) {
