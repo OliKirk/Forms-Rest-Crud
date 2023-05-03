@@ -9,27 +9,13 @@ function initApp() {
   console.log("initApp is running 🎉");
   updateChampsGrid();
   // document.querySelector("#dialog-update-btn").addEventListener("click", updateChamp());
-document
-  .querySelector("#create-champ-btn")
-  .addEventListener("click", showCreateChampDialog)
-document
-  .querySelector("#form-create-champ")
-  .addEventListener("submit", createChampClicked)
-document
-  .querySelector("#form-delete-champ")
-  .addEventListener("submit", deleteChampClicked);
-document
-  .querySelector("#form-delete-champ .btn-cancel")
-  .addEventListener("click", deleteCancelClicked);  // filter / imput
-document
-  .querySelector("#select-sort-by")
-  .addEventListener("change", sortByChanged);
-document
-  .querySelector("#input-search")
-  .addEventListener("keyup", inputSearchChanged);
-document
-  .querySelector("#input-search")
-  .addEventListener("search", inputSearchChanged);
+  document.querySelector("#create-champ-btn").addEventListener("click", showCreateChampDialog);
+  document.querySelector("#form-create-champ").addEventListener("submit", createChampClicked);
+  document.querySelector("#form-delete-champ").addEventListener("submit", deleteChampClicked);
+  document.querySelector("#form-delete-champ .btn-cancel").addEventListener("click", deleteCancelClicked); // filter / imput
+  document.querySelector("#select-sort-by").addEventListener("change", sortByChanged);
+  document.querySelector("#input-search").addEventListener("keyup", inputSearchChanged);
+  document.querySelector("#input-search").addEventListener("search", inputSearchChanged);
 }
 
 async function updateChampsGrid() {
@@ -92,13 +78,27 @@ function showChamp(champ) {
     document.querySelector("#dialog-detail-view").close();
     document.querySelector("#champinfo").remove();
   }
+  function updateClicked() {
+    const updateForm = document.querySelector("#form-update-champ"); // reference to update form in dialog
+    updateForm.name.value = champ.name; // set title input in update form from post title
+    updateForm.description.value = champ.description; // set body input in update form post body
+    updateForm.image.value = champ.image; // set image input in update form post image
+    updateForm.region.value = champ.region;
+    updateForm.sex.value = champ.sex;
+    updateForm.species.value = champ.species;
+    updateForm.role.value = champ.role;
+    updateForm.type.value = champ.type;
+    updateForm.setAttribute("data-id", champ.id); // set data-id attribute of post you want to update (... to use when update)
+    document.querySelector("#dialog-update-champ").showModal(); // show update modal
+  }
 
   function deleteClicked() {
     console.log("deleteClicked");
     document.querySelector("#dialog-delete-champ-name").textContent = champ.title;
     document.querySelector("#form-delete-champ").setAttribute("data-id", champ.id);
     document.querySelector("#dialog-delete-champ").showModal();
-  }}
+  }
+}
 
 function updateChampClicked(event) {
   const form = event.target;
@@ -112,7 +112,7 @@ function updateChampClicked(event) {
   const type = form.type.value;
   const id = form.getAttribute("data-id");
   updateChamp(id, name, description, image, region, sex, species, role, type);
-    // document.querySelector("#dialog-update-champ").showModal();
+  // document.querySelector("#dialog-update-champ").showModal();
   // console.log("updateChampClicked");
   // const name = `${champObject.name} Uppdated`;
   // const description = "Her er jeg";
@@ -125,24 +125,24 @@ function updateChampClicked(event) {
   // document.querySelector("#dialog-update-btn").addEventListener("click", function () {
   //   updateChamp(champ);
   // });
-/* async function viewChamp() {
+  /* async function viewChamp() {
   // muligt tilføjelse af update- og deletechamp hvis layout trænges
 } */
 }
 
-function updateClicked(champ) {
-  const updateForm = document.querySelector("#form-update-champ"); // reference to update form in dialog
-  updateForm.name.value = champ.name; // set title input in update form from post title
-  updateForm.description.value = champ.description; // set body input in update form post body
-  updateForm.image.value = champ.image; // set image input in update form post image
-  updateForm.region.value = champ.region;
-  updateForm.sex.value = champ.sex;
-  updateForm.species.value = champ.species;
-  updateForm.role.value = champ.role;
-  updateForm.type.value = champ.type;
-  updateForm.setAttribute("data-id", champ.id); // set data-id attribute of post you want to update (... to use when update)
-  document.querySelector("#dialog-update-champ").showModal(); // show update modal
-}
+// function updateClicked(champ) {
+//   const updateForm = document.querySelector("#form-update-champ"); // reference to update form in dialog
+//   updateForm.name.value = champ.name; // set title input in update form from post title
+//   updateForm.description.value = champ.description; // set body input in update form post body
+//   updateForm.image.value = champ.image; // set image input in update form post image
+//   updateForm.region.value = champ.region;
+//   updateForm.sex.value = champ.sex;
+//   updateForm.species.value = champ.species;
+//   updateForm.role.value = champ.role;
+//   updateForm.type.value = champ.type;
+//   updateForm.setAttribute("data-id", champ.id); // set data-id attribute of post you want to update (... to use when update)
+//   document.querySelector("#dialog-update-champ").showModal(); // show update modal
+// }
 
 function showCreateChampDialog() {
   console.log("create champ clicked");
@@ -152,8 +152,8 @@ function showCreateChampDialog() {
 function deleteCancelClicked() {
   document.querySelector("#dialog-delete-champ").close(); // close dialog
 }
-function createCancelClicked(){
-  document.querySelector("#dialog-create-champ").close()
+function createCancelClicked() {
+  document.querySelector("#dialog-create-champ").close();
 }
 
 async function createChampClicked(event) {
@@ -244,7 +244,7 @@ async function createChamp(name, description, image, region, sex, species, role,
     console.log("New champ succesfully added to Firebase 🔥");
     updateChampsGrid();
   } */
-  return response
+  return response;
 }
 
 // ============= Filter / sort by ===============
