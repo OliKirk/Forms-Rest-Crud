@@ -5,7 +5,7 @@ main {
 }
 
 .background-main {
-  background-image: url("../pictures/dragon.webp");
+  /* background-image: url("../pictures/dragon.webp"); */
   background-color: gray;
   background-blend-mode: multiply;
   background-size: cover;
