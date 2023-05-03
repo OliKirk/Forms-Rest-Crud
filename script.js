@@ -80,17 +80,16 @@ function showChamp(champ) {
   }
   function updateClicked() {
     console.log("update clicked");
-    const updateForm = document.querySelector("#form-update-champ"); // reference to update form in dialog
-    updateForm.name.value = champ.name; // set title input in update form from post title
-    updateForm.description.value = champ.description; // set body input in update form post body
-    updateForm.image.value = champ.image; // set image input in update form post image
+    const updateForm = document.querySelector("#form-update-champ");
+    updateForm.description.value = champ.description;
+    updateForm.image.value = champ.image;
     updateForm.region.value = champ.region;
     updateForm.sex.value = champ.sex;
     updateForm.species.value = champ.species;
     updateForm.role.value = champ.role;
     updateForm.type.value = champ.type;
-    updateForm.setAttribute("data-id", champ.id); // set data-id attribute of post you want to update (... to use when update)
-    document.querySelector("#dialog-update-champ").showModal(); // show update modal
+    updateForm.setAttribute("data-id", champ.id);
+    document.querySelector("#dialog-update-champ").showModal();
   }
 
   function deleteClicked() {
@@ -122,8 +121,9 @@ function showCreateChampDialog() {
 }
 
 function deleteCancelClicked() {
-  document.querySelector("#dialog-delete-champ").close(); // close dialog
+  document.querySelector("#dialog-delete-champ").close();
 }
+
 function createCancelClicked() {
   document.querySelector("#dialog-create-champ").close();
 }
@@ -154,10 +154,12 @@ function prepareChamps(dataObject) {
   }
   return array;
 }
+
 function deleteChampClicked(event) {
   const id = event.target.getAttribute("data-id");
   deleteChamp(id);
 }
+
 async function deleteChamp(id) {
   const response = await fetch(`${endpoint}/champs/${id}.json`, {
     method: "DELETE",
@@ -212,24 +214,18 @@ async function createChamp(name, description, image, region, sex, species, role,
   return response;
 }
 
-// ============= Filter / sort by ===============
-
 function searchChamps(searchValue) {
   searchValue = searchValue.toLowerCase();
-
   const results = champs.filter(checkTitle);
-
   function checkTitle(champ) {
     const name = champ.name.toLowerCase();
     return name.includes(searchValue);
   }
-
   return results;
 }
 
 function sortByChanged(event) {
   const selectedValue = event.target.value;
-
   if (selectedValue === "name") {
     champs.sort(compareName);
   } else if (selectedValue === "role") {
