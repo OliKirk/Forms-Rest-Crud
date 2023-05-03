@@ -9,6 +9,7 @@ function initApp() {
   console.log("initApp is running 🎉");
   updateChampsGrid();
   document.querySelector("#create-champ-btn").addEventListener("click", showCreateChampDialog);
+  document.querySelector("#form-create-champ .btn-cancel").addEventListener("click", createCancelClicked); 
   document.querySelector("#form-create-champ").addEventListener("submit", createChampClicked);
   document.querySelector("#form-delete-champ").addEventListener("submit", deleteChampClicked);
   document.querySelector("#form-delete-champ .btn-cancel").addEventListener("click", deleteCancelClicked); // filter / imput
