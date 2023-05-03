@@ -10,7 +10,7 @@ function initApp() {
   updateChampsGrid();
   // document.querySelector("#dialog-update-btn").addEventListener("click", updateChamp());
 document.querySelector("#create-champ-btn").addEventListener("click", showCreateChampDialog)
-document.querySelector("#form-create-champ").addEventListener("submit", createChampClicked)
+// document.querySelector("#form-create-champ").addEventListener("submit", createChampClicked)
   document.querySelector("#form-delete-champ").addEventListener("submit", deleteChampClicked);
 }
 
