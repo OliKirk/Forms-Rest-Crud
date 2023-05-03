@@ -9,7 +9,7 @@ function initApp() {
   console.log("initApp is running 🎉");
   updateChampsGrid();
   document.querySelector("#create-champ-btn").addEventListener("click", showCreateChampDialog);
-  document.querySelector("#form-create-champ .btn-cancel").addEventListener("click", createCancelClicked); 
+  document.querySelector("#form-create-champ .btn-cancel").addEventListener("click", createCancelClicked);
   document.querySelector("#form-create-champ").addEventListener("submit", createChampClicked);
   document.querySelector("#form-delete-champ").addEventListener("submit", deleteChampClicked);
   document.querySelector("#form-delete-champ .btn-cancel").addEventListener("click", deleteCancelClicked); // filter / imput
@@ -52,6 +52,9 @@ function showChamp(champ) {
         </div>
     </article>`;
   document.querySelector("#champ-data").insertAdjacentHTML("beforeend", champHTML);
+  // tilføj theme til baggrunden
+  // document.querySelector("#champ-data article:last-child").classList.add(typeThemeSelector(champ.region));
+
   document.querySelector("#champ-data article:last-child .delete-btn").addEventListener("click", deleteClicked);
   document.querySelector("#champ-data article:last-child .update-btn").addEventListener("click", updateClicked);
   document.querySelector("#champ-data article:last-child .body").addEventListener("click", openChampDialog);
@@ -71,6 +74,11 @@ function showChamp(champ) {
     </article>`;
     document.querySelector("#dialog-detail-view").insertAdjacentHTML("beforeend", myHTML);
     document.querySelector("#dialog-detail-view").showModal();
+
+    // Tilføj og fjern theme til baggrunden af de forskellige modal vinduer
+    // document.querySelector("#dialog-detail-view").classList.add(typeThemeSelector(champ.type));
+    // document.querySelector("#dialog-detail-view").addEventListener("close", removeModalTheme);
+
     document.querySelector("#close-btn").addEventListener("click", closeDialog);
   }
   function closeDialog() {
@@ -112,7 +120,7 @@ function updateChampClicked(event) {
   const role = form.role.value;
   const type = form.type.value;
   const id = form.getAttribute("data-id");
-updateChamp(id, name, description, image, region, sex, species, role, type);
+  updateChamp(id, name, description, image, region, sex, species, role, type);
 }
 
 function showCreateChampDialog() {
@@ -172,7 +180,7 @@ async function deleteChamp(id) {
 }
 
 async function updateChamp(id, name, description, image, region, sex, species, role, type) {
-  console.log("update champ")
+  console.log("update champ");
   const champToUpdate = {
     name,
     description,
@@ -188,10 +196,10 @@ async function updateChamp(id, name, description, image, region, sex, species, r
     method: "PUT",
     body: champJson,
   });
-/* return response; */
+  /* return response; */
   if (response.ok) {
     updateChampsGrid();
-  } 
+  }
 }
 
 async function createChamp(name, description, image, region, sex, species, role, type) {
@@ -241,10 +249,57 @@ function inputSearchChanged(event) {
 }
 
 function compareName(champ1, champ2) {
-  console.log("compare name")
+  console.log("compare name");
   return champ1.name.localeCompare(champ2.name);
 }
 
 function compareRole(champ1, champ2) {
   return champ1.role.localeCompare(champ2.role);
+}
+
+// ======================================= Regions ======================================//
+
+function regionThemeSelector(region) {
+  // The test for what type the clicked champion has to determine what color the background will be on the modal
+  let typeTest = region;
+  let type;
+
+  "Bandle-City", "BilgeWater", "Demarcia", "Ionia", "Ixtal", "Noxus", "Piltover", "Shadow-Isles", "Shurima", "Targon", "The-Freljord", "The-Void", "Zaun";
+
+  if (typeTest.includes("Bandle-City") === true || typeTest.includes("Bandle-City") === true) {
+    type = "Bandle-City";
+  } else if (typeTest.includes("BilgeWater") === true || typeTest.includes("BilgeWater") === true) {
+    type = "BilgeWater";
+  } else if (typeTest.includes("Demarcia") === true || typeTest.includes("Demarcia") === true) {
+    type = "Demarcia";
+  } else if (typeTest.includes("Ionia") === true || typeTest.includes("Ionia") === true) {
+    type = "Inoia";
+  } else if (typeTest.includes("Ixtal") === true || typeTest.includes("Ixtal") === true) {
+    type = "Ixtal";
+  } else if (typeTest.includes("Noxus") === true || typeTest.includes("Noxus") == true) {
+    type = "Noxus";
+  } else if (typeTest.includes("Piltover") === true || typeTest.includes("Piltover") === true) {
+    type = "Piltover";
+  } else if (typeTest.includes("Shadow-Isles") === true || typeTest.includes("Shadow-Isles") === true) {
+    type = "Shadow-Isles";
+  } else if (typeTest.includes("Shurima") === true || typeTest.includes("Shurima") === true) {
+    type = "Shurima";
+  } else if (typeTest.includes("Targon") === true || typeTest.includes("Targon") === true) {
+    type = "Tarhon";
+  } else if (typeTest.includes("The-Freljord") === true || typeTest.includes("The-Freljord") === true) {
+    type = "The-Freljord";
+  } else if (typeTest.includes("The-Void") === true || typeTest.includes("The-Void") === true) {
+    type = "The-Void";
+  } else if (typeTest.includes("Zaun") === true || typeTest.includes("Zaun") === true) {
+    type = "Zaun";
+  } else {
+    type = "misinput";
+  }
+
+  return `${type}Theme`;
+}
+
+function removeModalTheme() {
+  document.querySelector("#dialog-detail-view").classList.remove("Bandle-City", "BilgeWater", "Demarcia", "Ionia", "Ixtal", "Noxus", "Piltover", "Shadow-Isles", "Shurima", "Targon", "The-Freljord", "The-Void", "Zaun");
+  //Removes all the themes ^
 }

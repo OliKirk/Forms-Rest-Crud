@@ -10,6 +10,12 @@ main {
   background-blend-mode: multiply;
   background-size: cover;
   background-repeat: repeat-y;
+
+  /* display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-column-gap: 5vw;
+  grid-row-gap: 0px; */
 }
 
 .grid-container {
