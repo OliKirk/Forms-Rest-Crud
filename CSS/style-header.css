@@ -1,5 +1,8 @@
 header {
-  position: absolute;
+  background-color: white;
+  color: black;
+  padding: 1em;
+  position: fixed;
   top: 0;
   left: 0;
   width: 90%;
