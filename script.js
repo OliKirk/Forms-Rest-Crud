@@ -11,6 +11,7 @@ function initApp() {
   // document.querySelector("#dialog-update-btn").addEventListener("click", updateChamp());
 document.querySelector("#create-champ-btn").addEventListener("click", showCreateChampDialog)
 document.querySelector("#form-create-champ").addEventListener("submit", createChampClicked)
+  document.querySelector("#form-delete-champ").addEventListener("submit", deleteChampClicked);
 }
 
 async function updateChampsGrid() {
@@ -47,7 +48,7 @@ function showChamp(champ) {
         </div>
     </article>`;
   document.querySelector("#champ-data").insertAdjacentHTML("beforeend", champHTML);
-  document.querySelector("#champ-data article:last-child .delete-btn").addEventListener("click", deleteChampClicked);
+  document.querySelector("#champ-data article:last-child .delete-btn").addEventListener("click", deleteClicked);
   document.querySelector("#champ-data article:last-child .update-btn").addEventListener("click", updateChampClicked);
   document.querySelector("#champ-data article:last-child .body").addEventListener("click", openChampDialog);
 
@@ -74,8 +75,10 @@ function showChamp(champ) {
     document.querySelector("#champinfo").remove();
   }
 
-  function deleteChampClicked() {
-    console.log("deleteChampClicked");
+  function deleteClicked() {
+    console.log("deleteClicked");
+    document.querySelector("#dialog-delete-champ-name").textContent = champ.title;
+    document.querySelector("#form-delete-champ").setAttribute("data-id", champ.id);
     document.querySelector("#dialog-delete-champ").showModal();
   }
 
@@ -129,7 +132,10 @@ function prepareChamps(dataObject) {
   }
   return array;
 }
-
+function deleteChampClicked(event) {
+  const id = event.target.getAttribute("data-id");
+  deleteChamp(id);
+}
 async function deleteChamp(id) {
   const response = await fetch(`${endpoint}/champs/${id}.json`, {
     method: "DELETE",
