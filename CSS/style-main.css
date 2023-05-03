@@ -4,13 +4,12 @@ main {
   padding: 200px 0 0;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.background-main {
+  /* background-image: url("../pictures/dragon.webp"); */
+  background-color: gray;
+  background-blend-mode: multiply;
+  background-size: cover;
+  background-repeat: repeat-y;
 }
 
 .grid-container {
