@@ -10,8 +10,12 @@ function initApp() {
   updateChampsGrid();
   // document.querySelector("#dialog-update-btn").addEventListener("click", updateChamp());
 document.querySelector("#create-champ-btn").addEventListener("click", showCreateChampDialog)
-document.querySelector("#form-create-champ").addEventListener("submit", createChampClicked)
+// document.querySelector("#form-create-champ").addEventListener("submit", createChampClicked)
   document.querySelector("#form-delete-champ").addEventListener("submit", deleteChampClicked);
+  // filter / imput
+  document.querySelector("#select-sort-by").addEventListener("change", sortByChanged);
+  document.querySelector("#input-search").addEventListener("keyup", inputSearchChanged);
+  document.querySelector("#input-search").addEventListener("search", inputSearchChanged);
 }
 
 async function updateChampsGrid() {
@@ -200,6 +204,7 @@ async function createChamp(name, description, image, region, sex, species, role,
 // ============= Filter / sort by ===============
 
 function searchChamps() {
+  console.log("WORKS");
   searchValue = searchValue.toLowerCase();
 
   const results = champs.filter(checkTitle);
@@ -213,6 +218,7 @@ function searchChamps() {
 }
 
 function sortByChanged(event) {
+  console.log("WORKSSSS");
   const selectedValue = event.target.value;
 
   if (selectedValue === "title") {
@@ -225,15 +231,18 @@ function sortByChanged(event) {
 }
 
 function inputSearchChanged(event) {
+  console.log("LOGGGG");
   const value = event.target.value;
   const champsShow = searchPosts(value);
   showChamps(champsShow);
 }
 
 function compareTitle(champ1, champ2) {
+  console.log("WORKSSS");
   return champ1.title.localeCompare(champ2.title);
 }
 
 function compareBody(champ1, champ2) {
+  console.log("KWOWW");
   return champ1.body.localeCompare(champ2.body);
 }
