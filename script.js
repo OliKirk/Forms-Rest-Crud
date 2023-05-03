@@ -203,8 +203,7 @@ async function createChamp(name, description, image, region, sex, species, role,
 
 // ============= Filter / sort by ===============
 
-function searchChamps() {
-  console.log("WORKS");
+function searchChamps(searchValue) {
   searchValue = searchValue.toLowerCase();
 
   const results = champs.filter(checkTitle);
@@ -218,7 +217,6 @@ function searchChamps() {
 }
 
 function sortByChanged(event) {
-  console.log("WORKSSSS");
   const selectedValue = event.target.value;
 
   if (selectedValue === "title") {
@@ -231,18 +229,15 @@ function sortByChanged(event) {
 }
 
 function inputSearchChanged(event) {
-  console.log("LOGGGG");
   const value = event.target.value;
-  const champsShow = searchPosts(value);
+  const champsShow = searchChamps(value);
   showChamps(champsShow);
 }
 
 function compareTitle(champ1, champ2) {
-  console.log("WORKSSS");
   return champ1.title.localeCompare(champ2.title);
 }
 
 function compareBody(champ1, champ2) {
-  console.log("KWOWW");
   return champ1.body.localeCompare(champ2.body);
 }
