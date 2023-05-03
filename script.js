@@ -10,8 +10,12 @@ function initApp() {
   updateChampsGrid();
   // document.querySelector("#dialog-update-btn").addEventListener("click", updateChamp());
 document.querySelector("#create-champ-btn").addEventListener("click", showCreateChampDialog)
-document.querySelector("#form-create-champ").addEventListener("submit", createChampClicked)
+// document.querySelector("#form-create-champ").addEventListener("submit", createChampClicked)
   document.querySelector("#form-delete-champ").addEventListener("submit", deleteChampClicked);
+  // filter / imput
+  document.querySelector("#select-sort-by").addEventListener("change", sortByChanged);
+  document.querySelector("#input-search").addEventListener("keyup", inputSearchChanged);
+  document.querySelector("#input-search").addEventListener("search", inputSearchChanged);
 }
 
 async function updateChampsGrid() {
@@ -101,25 +105,25 @@ function showChamp(champ) {
     // muligt tilføjelse af update- og deletechamp hvis layout trænges
   } */
 }
-function showCreateChampDialog () {
+function showCreateChampDialog() {
   console.log("create champ clicked");
-document.querySelector("#dialog-create-champ").showModal()
+  document.querySelector("#dialog-create-champ").showModal();
 }
 
-async function createChampClicked (event) {
-const form = event.target;
-const name = form.name.value;
-const description = form.description.value;
-const image = form.image.value;
-const region = form.region.value;
-const sex = form.sex.value;
-const species = form.species.value;
-const role = form.role.value;
-const type = form.type.value;
-const response = await createChamp(name, description, image, region, sex, species, role, type); 
-if (response.ok) {
-  updateChampsGrid();
-  form.reset();
+async function createChampClicked(event) {
+  const form = event.target;
+  const name = form.name.value;
+  const description = form.description.value;
+  const image = form.image.value;
+  const region = form.region.value;
+  const sex = form.sex.value;
+  const species = form.species.value;
+  const role = form.role.value;
+  const type = form.type.value;
+  const response = await createChamp(name, description, image, region, sex, species, role, type);
+  if (response.ok) {
+    updateChampsGrid();
+    form.reset();
   }
 }
 
@@ -174,7 +178,7 @@ async function updateChamp(name, description, image, region, sex, species, role,
 }
 
 async function createChamp(name, description, image, region, sex, species, role, type) {
-  console.log("create champ")
+  console.log("create champ");
   const newChamp = {
     name,
     description,
@@ -197,44 +201,48 @@ async function createChamp(name, description, image, region, sex, species, role,
   /* return response */
 }
 
-
 // ============= Filter / sort by ===============
 
 function searchChamps() {
+  console.log("WORKS");
   searchValue = searchValue.toLowerCase();
 
   const results = champs.filter(checkTitle);
 
   function checkTitle(champ) {
-      const title = champ.title.toLowerCase();
-      return title.includes(searchValue);
+    const title = champ.title.toLowerCase();
+    return title.includes(searchValue);
   }
 
   return results;
 }
 
 function sortByChanged(event) {
+  console.log("WORKSSSS");
   const selectedValue = event.target.value;
 
   if (selectedValue === "title") {
-      champs.sort(compareTitle);
+    champs.sort(compareTitle);
   } else if (selectedValue === "body") {
-      champs.sort(compareBody);
+    champs.sort(compareBody);
   }
 
   showChamps(champs);
 }
 
 function inputSearchChanged(event) {
+  console.log("LOGGGG");
   const value = event.target.value;
   const champsShow = searchPosts(value);
   showChamps(champsShow);
 }
 
 function compareTitle(champ1, champ2) {
+  console.log("WORKSSS");
   return champ1.title.localeCompare(champ2.title);
 }
 
 function compareBody(champ1, champ2) {
+  console.log("KWOWW");
   return champ1.body.localeCompare(champ2.body);
 }
