@@ -233,7 +233,7 @@ function sortByChanged(event) {
 function inputSearchChanged(event) {
   console.log("LOGGGG");
   const value = event.target.value;
-  const champsShow = searchPosts(value);
+  const champsShow = searchChamps(value);
   showChamps(champsShow);
 }
 
