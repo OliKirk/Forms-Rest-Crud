@@ -67,7 +67,7 @@ function showChamp(champ) {
     </article>`;
   document.querySelector("#champ-data").insertAdjacentHTML("beforeend", champHTML);
   document.querySelector("#champ-data article:last-child .delete-btn").addEventListener("click", deleteClicked);
-  document.querySelector("#champ-data article:last-child .update-btn").addEventListener("click", updateChampClicked);
+  document.querySelector("#champ-data article:last-child .update-btn").addEventListener("click", updateClicked);
   document.querySelector("#champ-data article:last-child .body").addEventListener("click", openChampDialog);
 
   function openChampDialog() {
@@ -112,11 +112,8 @@ function updateChampClicked(event) {
   const role = form.role.value;
   const type = form.type.value;
   const id = form.getAttribute("data-id");
-  document.querySelector("#dialog-update-btn").addEventListener("click", function () {
   updateChamp(id, name, description, image, region, sex, species, role, type);
-  });
-}
-  // document.querySelector("#dialog-update-champ").showModal();
+    // document.querySelector("#dialog-update-champ").showModal();
   // console.log("updateChampClicked");
   // const name = `${champObject.name} Uppdated`;
   // const description = "Her er jeg";
@@ -132,6 +129,21 @@ function updateChampClicked(event) {
 /* async function viewChamp() {
   // muligt tilføjelse af update- og deletechamp hvis layout trænges
 } */
+}
+
+function updateClicked(champ) {
+  const updateForm = document.querySelector("#form-update-champ"); // reference to update form in dialog
+  updateForm.name.value = champ.name; // set title input in update form from post title
+  updateForm.description.value = champ.description; // set body input in update form post body
+  updateForm.image.value = champ.image; // set image input in update form post image
+  updateForm.region.value = champ.region;
+  updateForm.sex.value = champ.sex;
+  updateForm.species.value = champ.species;
+  updateForm.role.value = champ.role;
+  updateForm.type.value = champ.type;
+  updateForm.setAttribute("data-id", champ.id); // set data-id attribute of post you want to update (... to use when update)
+  document.querySelector("#dialog-update-champ").showModal(); // show update modal
+}
 
 function showCreateChampDialog() {
   console.log("create champ clicked");
