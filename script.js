@@ -119,6 +119,7 @@ function showChamp(champ) {
     // muligt tilføjelse af update- og deletechamp hvis layout trænges
   } */
 }
+
 function showCreateChampDialog() {
   console.log("create champ clicked");
   document.querySelector("#dialog-create-champ").showModal();
