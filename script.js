@@ -10,7 +10,7 @@ function initApp() {
   updateChampsGrid();
   // document.querySelector("#dialog-update-btn").addEventListener("click", updateChamp());
 document.querySelector("#create-champ-btn").addEventListener("click", showCreateChampDialog)
-// document.querySelector("#form-create-champ").addEventListener("submit", createChampClicked)
+document.querySelector("#form-create-champ").addEventListener("submit", createChampClicked)
   document.querySelector("#form-delete-champ").addEventListener("submit", deleteChampClicked);
   document.querySelector("#form-delete-champ .btn-cancel").addEventListener("click", deleteCancelClicked);  // filter / imput
   document.querySelector("#select-sort-by").addEventListener("change", sortByChanged);
@@ -105,6 +105,7 @@ function showChamp(champ) {
     // muligt tilføjelse af update- og deletechamp hvis layout trænges
   } */
 }
+
 function showCreateChampDialog() {
   console.log("create champ clicked");
   document.querySelector("#dialog-create-champ").showModal();
