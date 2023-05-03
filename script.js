@@ -61,12 +61,12 @@ function showChamp(champ) {
     const myHTML = /*HTML*/ `<article id="champinfo"> 
     <h2>Name: ${champ.name}</h2>
     <img class="champinfo-img" src=${champ.image}>
-    <p>description: ${champ.description}</p>
-    <p>region: ${champ.region}</p>
-    <p>sex: ${champ.sex}</p>
-    <p>species: ${champ.species}</p>
-    <p>role: ${champ.role}</p>
-    <p>type: ${champ.type}</p>
+    <p>Description: ${champ.description}</p>
+    <p>Region: ${champ.region}</p>
+    <p>Sex: ${champ.sex}</p>
+    <p>Species: ${champ.species}</p>
+    <p>Role: ${champ.role}</p>
+    <p>Type: ${champ.type}</p>
 <button id="close-btn">Close</button>
     </article>`;
     document.querySelector("#dialog-detail-view").insertAdjacentHTML("beforeend", myHTML);
