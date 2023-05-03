@@ -3,4 +3,13 @@ footer {
   color: black;
   padding: 1em;
   text-align: center;
+  padding: 150px;
+  background-position: center;
+}
+
+.background-footer {
+  background-image: url("../pictures/Different-Lanes-LoL.png");
+  opacity: 1;
+  background-position: center;
+  background-size: cover;
 }
