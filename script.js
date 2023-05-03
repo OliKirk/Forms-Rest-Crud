@@ -98,7 +98,7 @@ function showChamp(champ) {
     document.querySelector("#dialog-delete-champ-name").textContent = champ.title;
     document.querySelector("#form-delete-champ").setAttribute("data-id", champ.id);
     document.querySelector("#dialog-delete-champ").showModal();
-  }
+  }}
 
 function updateChampClicked(event) {
   const form = event.target;
