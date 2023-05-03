@@ -8,7 +8,6 @@ window.addEventListener("load", initApp);
 function initApp() {
   console.log("initApp is running 🎉");
   updateChampsGrid();
-  // document.querySelector("#dialog-update-btn").addEventListener("click", updateChamp());
   document.querySelector("#create-champ-btn").addEventListener("click", showCreateChampDialog);
   document.querySelector("#form-create-champ").addEventListener("submit", createChampClicked);
   document.querySelector("#form-delete-champ").addEventListener("submit", deleteChampClicked);
@@ -20,12 +19,12 @@ function initApp() {
 }
 
 async function updateChampsGrid() {
+  console.log("update grid")
   champs = await getChampsData();
   showChamps(champs);
 }
 
 async function getChampsData() {
-  // VI ÆNDRER champs TIL CHAMPS NÅR VI OGSÅ GØR DET I VORES FIREBASE :)))
   const response = await fetch(`${endpoint}/champs.json`);
   const data = await response.json();
   const champs = prepareChamps(data);
@@ -33,10 +32,9 @@ async function getChampsData() {
 }
 
 function showChamps(listOfChamps) {
-  document.querySelector("#champ-data").innerHTML = ""; // reset the content of section#posts
-
+  document.querySelector("#champ-data").innerHTML = "";
   for (const champ of listOfChamps) {
-    showChamp(champ); // for every post object in listOfPosts, call showPost
+    showChamp(champ);
   }
 }
 
@@ -114,38 +112,8 @@ function updateChampClicked(event) {
   const role = form.role.value;
   const type = form.type.value;
   const id = form.getAttribute("data-id");
-  updateChamp(id, name, description, image, region, sex, species, role, type);
-  // document.querySelector("#dialog-update-champ").showModal();
-  // console.log("updateChampClicked");
-  // const name = `${champObject.name} Uppdated`;
-  // const description = "Her er jeg";
-  // const image = "";
-  // const region = "";
-  // const sex = "";
-  // const species = "";
-  // const role = "";
-  // const type = "";
-  // document.querySelector("#dialog-update-btn").addEventListener("click", function () {
-  //   updateChamp(champ);
-  // });
-  /* async function viewChamp() {
-  // muligt tilføjelse af update- og deletechamp hvis layout trænges
-} */
+updateChamp(id, name, description, image, region, sex, species, role, type);
 }
-
-// function updateClicked(champ) {
-//   const updateForm = document.querySelector("#form-update-champ"); // reference to update form in dialog
-//   updateForm.name.value = champ.name; // set title input in update form from post title
-//   updateForm.description.value = champ.description; // set body input in update form post body
-//   updateForm.image.value = champ.image; // set image input in update form post image
-//   updateForm.region.value = champ.region;
-//   updateForm.sex.value = champ.sex;
-//   updateForm.species.value = champ.species;
-//   updateForm.role.value = champ.role;
-//   updateForm.type.value = champ.type;
-//   updateForm.setAttribute("data-id", champ.id); // set data-id attribute of post you want to update (... to use when update)
-//   document.querySelector("#dialog-update-champ").showModal(); // show update modal
-// }
 
 function showCreateChampDialog() {
   console.log("create champ clicked");
@@ -200,7 +168,8 @@ async function deleteChamp(id) {
   }
 }
 
-async function updateChamp(name, description, image, region, sex, species, role, type) {
+async function updateChamp(id, name, description, image, region, sex, species, role, type) {
+  console.log("update champ")
   const champToUpdate = {
     name,
     description,
@@ -211,19 +180,15 @@ async function updateChamp(name, description, image, region, sex, species, role,
     role,
     type,
   };
-  const json = JSON.stringify(champToUpdate);
+  const champJson = JSON.stringify(champToUpdate);
   const response = await fetch(`${endpoint}/champs/${id}.json`, {
     method: "PUT",
-    body: json,
+    body: champJson,
   });
-
-  // function prepareUpdateChampsData(champ) {
-  // const name
-  // }
-
+/* return response; */
   if (response.ok) {
     updateChampsGrid();
-  }
+  } 
 }
 
 async function createChamp(name, description, image, region, sex, species, role, type) {
@@ -243,10 +208,6 @@ async function createChamp(name, description, image, region, sex, species, role,
     method: "POST",
     body: champJson,
   });
-  /* if (response.ok) {
-    console.log("New champ succesfully added to Firebase 🔥");
-    updateChampsGrid();
-  } */
   return response;
 }
 
