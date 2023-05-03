@@ -213,11 +213,11 @@ async function createChamp(name, description, image, region, sex, species, role,
     method: "POST",
     body: champJson,
   });
-  if (response.ok) {
+  /* if (response.ok) {
     console.log("New champ succesfully added to Firebase 🔥");
     updateChampsGrid();
-  }
-  /* return response */
+  } */
+  return response
 }
 
 // ============= Filter / sort by ===============
