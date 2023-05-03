@@ -12,7 +12,7 @@ function initApp() {
 document.querySelector("#create-champ-btn").addEventListener("click", showCreateChampDialog)
 // document.querySelector("#form-create-champ").addEventListener("submit", createChampClicked)
   document.querySelector("#form-delete-champ").addEventListener("submit", deleteChampClicked);
-  // filter / imput
+  document.querySelector("#form-delete-champ .btn-cancel").addEventListener("click", deleteCancelClicked);  // filter / imput
   document.querySelector("#select-sort-by").addEventListener("change", sortByChanged);
   document.querySelector("#input-search").addEventListener("keyup", inputSearchChanged);
   document.querySelector("#input-search").addEventListener("search", inputSearchChanged);
@@ -108,6 +108,10 @@ function showChamp(champ) {
 function showCreateChampDialog() {
   console.log("create champ clicked");
   document.querySelector("#dialog-create-champ").showModal();
+}
+
+function deleteCancelClicked() {
+  document.querySelector("#dialog-delete-champ").close(); // close dialog
 }
 
 async function createChampClicked(event) {
