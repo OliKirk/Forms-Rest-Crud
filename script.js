@@ -13,6 +13,7 @@ function initApp() {
   document.querySelector("#form-create-champ").addEventListener("submit", createChampClicked);
   document.querySelector("#form-delete-champ").addEventListener("submit", deleteChampClicked);
   document.querySelector("#form-delete-champ .btn-cancel").addEventListener("click", deleteCancelClicked); // filter / imput
+  document.querySelector("#form-update-champ").addEventListener("submit", updateChampClicked);
   document.querySelector("#select-sort-by").addEventListener("change", sortByChanged);
   document.querySelector("#input-search").addEventListener("keyup", inputSearchChanged);
   document.querySelector("#input-search").addEventListener("search", inputSearchChanged);
