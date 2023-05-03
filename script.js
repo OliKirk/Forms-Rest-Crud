@@ -15,6 +15,7 @@ document
 document
 .querySelector("#form-create-champ")
 .addEventListener("submit", createChampClicked)
+document.querySelector("#create-champ-cancel").addEventListener("click", createCancelClicked)
   document
   .querySelector("#form-delete-champ")
   .addEventListener("submit", deleteChampClicked);
@@ -127,6 +128,9 @@ function showCreateChampDialog() {
 
 function deleteCancelClicked() {
   document.querySelector("#dialog-delete-champ").close(); // close dialog
+}
+function createCancelClicked(){
+  document.querySelector("#dialog-create-champ").close()
 }
 
 async function createChampClicked(event) {
