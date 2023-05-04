@@ -10,6 +10,12 @@ main {
   background-blend-mode: multiply;
   background-size: cover;
   background-repeat: repeat-y;
+
+  /* display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-column-gap: 5vw;
+  grid-row-gap: 0px; */
 }
 
 .grid-container {
@@ -94,7 +100,7 @@ button {
   background-color: rebeccapurple;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  padding: 0.5em 1em;
+  padding: 1em 1em;
   width: 100%;
   max-width: 380px;
   display: grid;
