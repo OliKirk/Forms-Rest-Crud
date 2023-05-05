@@ -1,7 +1,6 @@
 "use strict";
 
-const endpoint =
-  "https://my-api-database-ccaf8-default-rtdb.europe-west1.firebasedatabase.app/";
+const endpoint = "https://my-api-database-ccaf8-default-rtdb.europe-west1.firebasedatabase.app/";
 let champs;
 
 window.addEventListener("load", initApp);
@@ -9,38 +8,17 @@ window.addEventListener("load", initApp);
 function initApp() {
   console.log("initApp is running 🎉");
   updateChampsGrid();
-  document
-    .querySelector("#create-champ-btn")
-    .addEventListener("click", showCreateChampDialog);
-  document
-    .querySelector("#form-create-champ .btn-cancel")
-    .addEventListener("click", createCancelClicked);
-  document
-    .querySelector("#form-create-champ")
-    .addEventListener("submit", createChampClicked);
-  document
-    .querySelector("#form-delete-champ")
-    .addEventListener("submit", deleteChampClicked);
-  document
-    .querySelector("#form-delete-champ .btn-cancel")
-    .addEventListener("click", deleteCancelClicked); // filter / imput
-  document
-    .querySelector("#form-update-champ")
-    .addEventListener("submit", updateChampClicked);
-  document
-    .querySelector("#form-update-champ .btn-cancel")
-    .addEventListener("click", updateCancelClicked);
-  // document.querySelector("#form-update-champ .btn-cancel").addEventListener("click", updateCancelClicked);
+  document.querySelector("#create-champ-btn").addEventListener("click", showCreateChampDialog);
+  document.querySelector("#form-create-champ").addEventListener("submit", createChampClicked);
+  document.querySelector("#form-delete-champ").addEventListener("submit", deleteChampClicked);
+  document.querySelector("#form-update-champ").addEventListener("submit", updateChampClicked);
+  document.querySelector("#form-create-champ .btn-cancel").addEventListener("click", createCancelClicked);
+  document.querySelector("#form-delete-champ .btn-cancel").addEventListener("click", deleteCancelClicked);
+  document.querySelector("#form-update-champ .btn-cancel").addEventListener("click", updateCancelClicked);
 
-  document
-    .querySelector("#select-sort-by")
-    .addEventListener("change", sortByChanged);
-  document
-    .querySelector("#input-search")
-    .addEventListener("keyup", inputSearchChanged);
-  document
-    .querySelector("#input-search")
-    .addEventListener("search", inputSearchChanged);
+  document.querySelector("#select-sort-by").addEventListener("change", sortByChanged);
+  document.querySelector("#input-search").addEventListener("keyup", inputSearchChanged);
+  document.querySelector("#input-search").addEventListener("search", inputSearchChanged);
 }
 
 async function updateChampsGrid() {
@@ -69,28 +47,19 @@ function showChamp(champ) {
         <div class ="body">        
         <img src=${champ.image}>
         <h2>${champ.name}</h2>
-        <h2>${champ.role}</h2>
         </div>
         <div class="btns">
             <button class="update-btn">Update</button>
             <button class="delete-btn">Delete</button>
         </div>
     </article>`;
-  document
-    .querySelector("#champ-data")
-    .insertAdjacentHTML("beforeend", champHTML);
+  document.querySelector("#champ-data").insertAdjacentHTML("beforeend", champHTML);
   // tilføj theme til baggrunden
   // document.querySelector("#champ-data article:last-child").classList.add(typeThemeSelector(champ.region));
 
-  document
-    .querySelector("#champ-data article:last-child .delete-btn")
-    .addEventListener("click", deleteClicked);
-  document
-    .querySelector("#champ-data article:last-child .update-btn")
-    .addEventListener("click", updateClicked);
-  document
-    .querySelector("#champ-data article:last-child .body")
-    .addEventListener("click", openChampDialog);
+  document.querySelector("#champ-data article:last-child .delete-btn").addEventListener("click", deleteClicked);
+  document.querySelector("#champ-data article:last-child .update-btn").addEventListener("click", updateClicked);
+  document.querySelector("#champ-data article:last-child .body").addEventListener("click", openChampDialog);
 
   function openChampDialog() {
     console.log("Open dialog / detail view");
@@ -105,9 +74,7 @@ function showChamp(champ) {
     <p>Type: ${champ.type}</p>
 <button id="close-btn">Close</button>
     </article>`;
-    document
-      .querySelector("#dialog-detail-view")
-      .insertAdjacentHTML("beforeend", myHTML);
+    document.querySelector("#dialog-detail-view").insertAdjacentHTML("beforeend", myHTML);
     document.querySelector("#dialog-detail-view").showModal();
 
     // Tilføj og fjern theme til baggrunden af de forskellige modal vinduer
@@ -124,7 +91,6 @@ function showChamp(champ) {
   function updateClicked() {
     console.log("update clicked");
     const updateForm = document.querySelector("#form-update-champ");
-    updateForm.name.value = champ.name;
     updateForm.description.value = champ.description;
     updateForm.image.value = champ.image;
     updateForm.region.value = champ.region;
@@ -138,11 +104,8 @@ function showChamp(champ) {
 
   function deleteClicked() {
     console.log("deleteClicked");
-    document.querySelector("#dialog-delete-champ-name").textContent =
-      champ.title;
-    document
-      .querySelector("#form-delete-champ")
-      .setAttribute("data-id", champ.id);
+    document.querySelector("#dialog-delete-champ-name").textContent = champ.title;
+    document.querySelector("#form-delete-champ").setAttribute("data-id", champ.id);
     document.querySelector("#dialog-delete-champ").showModal();
   }
 }
@@ -189,16 +152,7 @@ async function createChampClicked(event) {
   const species = form.species.value;
   const role = form.role.value;
   const type = form.type.value;
-  const response = await createChamp(
-    name,
-    description,
-    image,
-    region,
-    sex,
-    species,
-    role,
-    type
-  );
+  const response = await createChamp(name, description, image, region, sex, species, role, type);
   if (response.ok) {
     updateChampsGrid();
     form.reset();
@@ -231,17 +185,7 @@ async function deleteChamp(id) {
   }
 }
 
-async function updateChamp(
-  id,
-  name,
-  description,
-  image,
-  region,
-  sex,
-  species,
-  role,
-  type
-) {
+async function updateChamp(id, name, description, image, region, sex, species, role, type) {
   console.log("update champ");
   const champToUpdate = {
     name,
@@ -264,16 +208,7 @@ async function updateChamp(
   }
 }
 
-async function createChamp(
-  name,
-  description,
-  image,
-  region,
-  sex,
-  species,
-  role,
-  type
-) {
+async function createChamp(name, description, image, region, sex, species, role, type) {
   console.log("create champ");
   const newChamp = {
     name,
@@ -335,84 +270,33 @@ function regionThemeSelector(region) {
   let typeTest = region;
   let type;
 
-  "Bandle-City",
-    "BilgeWater",
-    "Demarcia",
-    "Ionia",
-    "Ixtal",
-    "Noxus",
-    "Piltover",
-    "Shadow-Isles",
-    "Shurima",
-    "Targon",
-    "The-Freljord",
-    "The-Void",
-    "Zaun";
+  "Bandle-City", "BilgeWater", "Demarcia", "Ionia", "Ixtal", "Noxus", "Piltover", "Shadow-Isles", "Shurima", "Targon", "The-Freljord", "The-Void", "Zaun";
 
-  if (
-    typeTest.includes("Bandle-City") === true ||
-    typeTest.includes("Bandle-City") === true
-  ) {
+  if (typeTest.includes("Bandle-City") === true || typeTest.includes("Bandle-City") === true) {
     type = "Bandle-City";
-  } else if (
-    typeTest.includes("BilgeWater") === true ||
-    typeTest.includes("BilgeWater") === true
-  ) {
+  } else if (typeTest.includes("BilgeWater") === true || typeTest.includes("BilgeWater") === true) {
     type = "BilgeWater";
-  } else if (
-    typeTest.includes("Demarcia") === true ||
-    typeTest.includes("Demarcia") === true
-  ) {
+  } else if (typeTest.includes("Demarcia") === true || typeTest.includes("Demarcia") === true) {
     type = "Demarcia";
-  } else if (
-    typeTest.includes("Ionia") === true ||
-    typeTest.includes("Ionia") === true
-  ) {
+  } else if (typeTest.includes("Ionia") === true || typeTest.includes("Ionia") === true) {
     type = "Inoia";
-  } else if (
-    typeTest.includes("Ixtal") === true ||
-    typeTest.includes("Ixtal") === true
-  ) {
+  } else if (typeTest.includes("Ixtal") === true || typeTest.includes("Ixtal") === true) {
     type = "Ixtal";
-  } else if (
-    typeTest.includes("Noxus") === true ||
-    typeTest.includes("Noxus") == true
-  ) {
+  } else if (typeTest.includes("Noxus") === true || typeTest.includes("Noxus") == true) {
     type = "Noxus";
-  } else if (
-    typeTest.includes("Piltover") === true ||
-    typeTest.includes("Piltover") === true
-  ) {
+  } else if (typeTest.includes("Piltover") === true || typeTest.includes("Piltover") === true) {
     type = "Piltover";
-  } else if (
-    typeTest.includes("Shadow-Isles") === true ||
-    typeTest.includes("Shadow-Isles") === true
-  ) {
+  } else if (typeTest.includes("Shadow-Isles") === true || typeTest.includes("Shadow-Isles") === true) {
     type = "Shadow-Isles";
-  } else if (
-    typeTest.includes("Shurima") === true ||
-    typeTest.includes("Shurima") === true
-  ) {
+  } else if (typeTest.includes("Shurima") === true || typeTest.includes("Shurima") === true) {
     type = "Shurima";
-  } else if (
-    typeTest.includes("Targon") === true ||
-    typeTest.includes("Targon") === true
-  ) {
+  } else if (typeTest.includes("Targon") === true || typeTest.includes("Targon") === true) {
     type = "Tarhon";
-  } else if (
-    typeTest.includes("The-Freljord") === true ||
-    typeTest.includes("The-Freljord") === true
-  ) {
+  } else if (typeTest.includes("The-Freljord") === true || typeTest.includes("The-Freljord") === true) {
     type = "The-Freljord";
-  } else if (
-    typeTest.includes("The-Void") === true ||
-    typeTest.includes("The-Void") === true
-  ) {
+  } else if (typeTest.includes("The-Void") === true || typeTest.includes("The-Void") === true) {
     type = "The-Void";
-  } else if (
-    typeTest.includes("Zaun") === true ||
-    typeTest.includes("Zaun") === true
-  ) {
+  } else if (typeTest.includes("Zaun") === true || typeTest.includes("Zaun") === true) {
     type = "Zaun";
   } else {
     type = "misinput";
@@ -422,22 +306,6 @@ function regionThemeSelector(region) {
 }
 
 function removeModalTheme() {
-  document
-    .querySelector("#dialog-detail-view")
-    .classList.remove(
-      "Bandle-City",
-      "BilgeWater",
-      "Demarcia",
-      "Ionia",
-      "Ixtal",
-      "Noxus",
-      "Piltover",
-      "Shadow-Isles",
-      "Shurima",
-      "Targon",
-      "The-Freljord",
-      "The-Void",
-      "Zaun"
-    );
+  document.querySelector("#dialog-detail-view").classList.remove("Bandle-City", "BilgeWater", "Demarcia", "Ionia", "Ixtal", "Noxus", "Piltover", "Shadow-Isles", "Shurima", "Targon", "The-Freljord", "The-Void", "Zaun");
   //Removes all the themes ^
 }

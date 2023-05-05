@@ -31,9 +31,26 @@
             <input type="search" id="input-search" placeholder="Search by name">
         </div>
     </section>
+
+            <label for="filter-by">Filter by role:
+           <form id="filter-by" name="filter-by">
+            <select>
+                <option value="">Not selected</option>
+                <option value="top">Top</option>
+                <option value="jungle">Jungle</option>
+                <option value="middle">Middle</option>
+                <option value="marksman">Marksman</option>
+                <option value="support">support</option>
+            </select>
+          </form>
+        </label>
+
+
+
     <section id="champs" class="grid-container"></section>
 
     </header>
+
 
     <main class="background-main">
 
@@ -46,51 +63,73 @@
       <dialog id="dialog-create-champ">
 
         <h2>Create new Champ</h2>
-        <form id="form-create-champ" method="dialog">
+        <form method="dialog" id="form-create-champ">
           <label for="name">Name:</label
-          ><input  type="text"   name="name   id="name" placeholder="Write name here"   required /><br>
-
+          ><input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Write new name here"
+            required
+          />
+          <br>
           <label for="image">Image:</label
           ><input
             type="url"
-            id="image"
+            id="dialog-image"
             name="image"
-            placeholder="Paste image URL here"
-          /><br>
-
+            placeholder="Paste new image URL here"
+          />
+          <br>
           <label for="description">Description:</label
           ><input
             type="text"
             name="description"
             id="description"
-            placeholder="Write description here"
-          /> <br>
+            placeholder="Write new description here"
+          />
+          <br>
+          <label for="region">Region:</label
+          ><input
+            type="text"
+            id="region"
+            name="region"
+            placeholder="Write new region here"
+          />
           
-          <label for="region">Region:</label > 
-          <input  type="text" id="region" name="region" placeholder="Write region here"/> <br>    
+          <h2 class="Sex">sex</h2>
+          <label for="male">Male</label>
+          <input type="radio" id="sex" value="Male"  name="sex" /><br />
+          <label for="<female>">Female</label>
+          <input type="radio" name="sex" value="Female" id="sex" /><br />
+            <label for="<female>">Other</label>
+          <input type="radio" name="sex" value="Other" id="sex" /><br />
+      
 
-   <label for="sex">Select sex:
-            <select class="sex">
-                <option id="sex" value="" selected>Not selected</option>
-                <option id="sex" value="male">Male</option>
-                <option id="sex" value="female">Female</option>
-               <option id="sex" value="other">Other</option>     
-            </select>
-        </label><br>
+          <label for="species">Species</label
+          ><input
+            type="text"
+            id="species"
+            name="species"
+            placeholder="Put new species here"
+          />
+  
+          <br>
           <label for="role">Role:</label
           ><input
             type="text"
             id="role"
             name="role"
-            placeholder="Put role(s) here"
+            placeholder="Put new role(s) here"
             required
-          /><br>
+          />
+          <br>
           <label for="type">Type:</label
           ><input
             type="text"
             id="type"
             name="type"
-            placeholder="Write type(s) here"
+            placeholder="Write new type(s) here"
           />
 
           <button id="create-champ-submit">Create champ</button><button type="button" class="btn-cancel" id="create-champ-cancel">Cancel</button>
@@ -160,15 +199,6 @@
             placeholder="Put new species here"
           />
           
-   <label for="sex">Select sex:
-    <br>
-            <select class="sex">
-                <option id="sex" value="" selected>Not selected</option>
-                <option id="sex" value="male">Male</option>
-                <option id="sex" value="female">Female</option>
-               <option id="sex" value="other">Other</option>     
-            </select>
-        </label><br>
 
           <br>
           <label for="role">Role:</label
@@ -179,8 +209,8 @@
             placeholder="Put new role(s) here"
             required
           />
-
-          <!-- <h2>Role</h2>
+<!-- 
+          <h2>Role</h2>
           <label for="top">Top</label>
           <input type="checkbox" name="role" value="Top"id="top"><br>
           <label for="jungle">Jungle</label>
@@ -192,6 +222,7 @@
           <label for="support">Support</label>
           <input type="checkbox" name="role" value="Support" id="support"><br>
           <br> -->
+          <br>
           <label for="type">Type:</label
           ><input
             type="text"
