@@ -20,11 +20,12 @@ main {
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 20px;
+  grid-template-columns: 1fr;
+  gap: 1em;
+  padding: 1em;
 }
 
-/* @media (min-width: 600px) {
+@media (min-width: 600px) {
   .grid-container {
     grid-template-columns: 1fr 1fr;
   }
@@ -44,7 +45,7 @@ main {
   .grid-container {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   }
-} */
+}
 
 .grid-item {
   box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25);

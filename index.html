@@ -41,17 +41,15 @@
 
       <dialog id="dialog-detail-view"></dialog>
 
+
+      <!-- ========================================== CREATE CHAMP DIALOG =============================================================================== -->
       <dialog id="dialog-create-champ">
+
         <h2>Create new Champ</h2>
         <form id="form-create-champ" method="dialog">
           <label for="name">Name:</label
-          ><input
-            type="text"
-            name="name"
-            id="name"
-            placeholder="Write name here"
-            required
-          /><br>
+          ><input  type="text"   name="name   id="name" placeholder="Write name here"   required /><br>
+
           <label for="image">Image:</label
           ><input
             type="url"
@@ -59,30 +57,26 @@
             name="image"
             placeholder="Paste image URL here"
           /><br>
+
           <label for="description">Description:</label
           ><input
             type="text"
             name="description"
             id="description"
             placeholder="Write description here"
-          /><br>
-          <label for="region">Region:</label
-          ><input
-            type="text"
-            id="region"
-            name="region"
-            placeholder="Write region here"/>
-            <h2 class="Sex">sex</h2>
-            <label for="male">Male</label>
-            <input type="radio" id="sex" value="Male"  name="sex" /><br />
-            <label for="<female>">Female</label>
-            <input type="radio" name="sex" value="Female" id="sex" /><br />
-          <input
-            type="text"
-            id="species"
-            name="species"
-            placeholder="Put species here"
-          /><br>
+          /> <br>
+          
+          <label for="region">Region:</label > 
+          <input  type="text" id="region" name="region" placeholder="Write region here"/> <br>    
+
+   <label for="sex">Select sex:
+            <select class="sex">
+                <option id="sex" value="" selected>Not selected</option>
+                <option id="sex" value="male">Male</option>
+                <option id="sex" value="female">Female</option>
+               <option id="sex" value="other">Other</option>     
+            </select>
+        </label><br>
           <label for="role">Role:</label
           ><input
             type="text"
@@ -102,6 +96,9 @@
           <button id="create-champ-submit">Create champ</button><button type="button" class="btn-cancel" id="create-champ-cancel">Cancel</button>
         </form>
       </dialog>
+
+
+      <!-- ========================================== DELETE CHAMP DIALOG =============================================================================== -->
       <dialog id="dialog-delete-champ">
         <h2>Are you sure you want to delete this Champ?</h2>
         <p id="dialog-delete-champ-name">Champ name here</p>
@@ -109,6 +106,9 @@
           <button>Yes</button><button type="button" class="btn-cancel" id="dialog-delete-cancel-btn">No</button>
         </form>
       </dialog>
+
+
+      <!-- ========================================== UPDATE CHAMP DIALOG =============================================================================== -->
       <dialog id="dialog-update-champ">
         <h2>Update Champ</h2>
         <form method="dialog" id="form-update-champ">
@@ -150,6 +150,10 @@
           <input type="radio" id="sex" value="Male"  name="sex" /><br />
           <label for="<female>">Female</label>
           <input type="radio" name="sex" value="Female" id="sex" /><br />
+        
+
+
+
           <label for="species">Species</label
           ><input
             type="text"
@@ -157,6 +161,17 @@
             name="species"
             placeholder="Put new species here"
           />
+          
+   <label for="sex">Select sex:
+    <br>
+            <select class="sex">
+                <option id="sex" value="" selected>Not selected</option>
+                <option id="sex" value="male">Male</option>
+                <option id="sex" value="female">Female</option>
+               <option id="sex" value="other">Other</option>     
+            </select>
+        </label><br>
+
           <br>
           <label for="role">Role:</label
           ><input

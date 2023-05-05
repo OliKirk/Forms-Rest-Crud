@@ -22,7 +22,7 @@ h3 {
 
 a {
   cursor: pointer;
-  color: var(--red);
+  color: red;
 }
 
 img {
