@@ -1,15 +1,17 @@
 header {
   background-color: white;
   color: black;
-  padding: 100px;
+  /* padding: 1em; */
   position: fixed;
-  top: 10;
-  left: 10;
+  top: 0;
+  left: 0;
   width: 100%;
-  padding: 30px 100px;
+  padding: 10px 10px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  max-height: 100vh;
 }
 
 .background-header {
@@ -22,10 +24,14 @@ header {
   /* background-image: url("../pictures/header.jpg"); */
   background-repeat: no-repeat;
   opacity: 1;
-  background-size: cover;
+  /* background-size: cover; */
 }
 
 .sex {
   margin-top: 5px;
   margin-bottom: 5px;
+}
+
+.create-champ-bt {
+  grid-area: 5 /5 /5 / 5;
 }
