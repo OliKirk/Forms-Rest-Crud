@@ -1,7 +1,7 @@
 header {
+  font-family:Arial, Helvetica, sans-serif;
   background-color: white;
   color: black;
-  /* padding: 1em; */
   position: fixed;
   top: 0;
   left: 0;
@@ -13,9 +13,12 @@ header {
   grid-template-columns: 1fr 1fr 1fr;
   max-height: 100vh;
 }
+header h1 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
 
 .background-header {
-  background-color: wheat;
+  background-color: rgb(240, 205, 116);
   font-weight: 700;
   text-decoration: none;
   font-size: 1em;
@@ -24,7 +27,6 @@ header {
   /* background-image: url("../pictures/header.jpg"); */
   background-repeat: no-repeat;
   opacity: 1;
-  /* background-size: cover; */
 }
 
 .sex {

@@ -1,10 +1,14 @@
 footer {
-  background-color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(240, 205, 116);
   color: black;
   padding: 1em;
   text-align: center;
   padding: 150px;
   background-position: center;
+}
+footer h2 {
+  color: aliceblue;
 }
 
 .background-footer {

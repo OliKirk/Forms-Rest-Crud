@@ -16,7 +16,7 @@ function initApp() {
   document.querySelector("#filter-btn").addEventListener("click", filterChampsClicked);
   document.querySelector("#form-create-champ .btn-cancel").addEventListener("click", createCancelClicked);
   document.querySelector("#form-delete-champ .btn-cancel").addEventListener("click", deleteCancelClicked);
-  document.querySelector("#form-update-champ .btn-cancel").addEventListener("click", updateCancelClicked);
+  document.querySelector("#dialog-update-close-btn").addEventListener("click", updateCancelClicked);
   document.querySelector("#filter-btn-close").addEventListener("click", filterCancelClicked);
   document.querySelector("#select-sort-by").addEventListener("change", sortByChanged);
   document.querySelector("#input-search").addEventListener("keyup", inputSearchChanged);
@@ -51,8 +51,6 @@ function showChamp(champ) {
         </div>
     </article>`;
   document.querySelector("#champ-data").insertAdjacentHTML("beforeend", champHTML);
-  // tilføj theme til baggrunden
-  // document.querySelector("#champ-data article:last-child").classList.add(typeThemeSelector(champ.region));
 
   document.querySelector("#champ-data article:last-child .delete-btn").addEventListener("click", deleteClicked);
   document.querySelector("#champ-data article:last-child .update-btn").addEventListener("click", updateClicked);
@@ -69,14 +67,10 @@ function showChamp(champ) {
     <p>Species: ${champ.species}</p>
     <p>Role: ${champ.role}</p>
     <p>Type: ${champ.type}</p>
-<button id="close-btn">Close</button>
+    <button id="close-btn">Close</button>
     </article>`;
     document.querySelector("#dialog-detail-view").insertAdjacentHTML("beforeend", myHTML);
     document.querySelector("#dialog-detail-view").showModal();
-
-    // Tilføj og fjern theme til baggrunden af de forskellige modal vinduer
-    // document.querySelector("#dialog-detail-view").classList.add(typeThemeSelector(champ.type));
-    // document.querySelector("#dialog-detail-view").addEventListener("close", removeModalTheme);
 
     document.querySelector("#close-btn").addEventListener("click", closeDialog);
   }
@@ -88,6 +82,7 @@ function showChamp(champ) {
   function updateClicked() {
     console.log("update clicked");
     const updateForm = document.querySelector("#form-update-champ");
+    updateForm.name.value = champ.name;
     updateForm.description.value = champ.description;
     updateForm.image.value = champ.image;
     updateForm.region.value = champ.region;
@@ -101,7 +96,7 @@ function showChamp(champ) {
 
   function deleteClicked() {
     console.log("deleteClicked");
-    document.querySelector("#dialog-delete-champ-name").textContent = champ.title;
+    document.querySelector("#dialog-delete-champ-name").textContent = champ.name;
     document.querySelector("#form-delete-champ").setAttribute("data-id", champ.id);
     document.querySelector("#dialog-delete-champ").showModal();
   }
@@ -123,7 +118,6 @@ function updateChampClicked(event) {
 }
 
 function showCreateChampDialog() {
-  console.log("create champ clicked");
   document.querySelector("#dialog-create-champ").showModal();
 }
 
@@ -138,12 +132,12 @@ function createCancelClicked() {
 function updateCancelClicked() {
   document.querySelector("#dialog-update-champ").close();
 }
+
 function filterCancelClicked() {
   document.querySelector("#filter-dialog").close();
 }
 
 function filterChampsClicked() {
-  console.log("Filter champs clicked");
   document.querySelector("#filter-dialog").showModal();
 }
 

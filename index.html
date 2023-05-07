@@ -8,11 +8,9 @@
     <link rel="stylesheet" href="CSS/style-main.css" />
     <link rel="stylesheet" href="CSS/style-footer.css" />
     <link rel="stylesheet" href="CSS/style-body.css" />
-    <link rel="stylesheet" href="CSS/reagions.css">
     <link rel="icon" type="image/x-icon" href="pictures/lol-icon.png">
     <title>Forms, Rest and Crud</title>
   </head>
-
   <body>
     <header class="background-header">
       <h1 href="#" class="">League Of Legends Champions</h1>
@@ -63,21 +61,21 @@
       <dialog id="dialog-create-champ">
         <h2>Create new Champ</h2>
         <form method="dialog" id="form-create-champ">
-          <label for="name">Name:</label
-          ><input
+          <label for="name">Name:</label>
+          <input
             type="text"
             name="name"
             id="name"
             placeholder="Write new name here"
             required
-          />
+          /><br>
           <label for="image">Image:</label>
           <input
             type="url"
             id="dialog-image"
             name="image"
             placeholder="Paste new image URL here"
-          />
+          /><br>
           <label for="description">Description:</label>
           <input
             type="text"
@@ -100,25 +98,23 @@
               <option value="Other">Other</option>
             </select>
           </label><br>
-          <label for="species">Species</label
-          ><input
+          <label for="species">Species</label>
+          <input
             type="text"
             id="species"
             name="species"
             placeholder="Put new species here"
-          />
-          <br>
-          <label for="role">Role:</label
-          ><input
+          /><br>
+          <label for="role">Role:</label>
+          <input
             type="text"
             id="role"
             name="role"
             placeholder="Put new role(s) here"
             required
-          />
-          <br>
-          <label for="type">Type:</label
-          ><input
+          /><br>
+          <label for="type">Type:</label>
+          <input
             type="text"
             id="type"
             name="type"
@@ -128,110 +124,87 @@
         </form>
       </dialog>
 
-      <!-- ========================================== DELETE CHAMP DIALOG =============================================================================== -->
+      <!-- Delete champ dialog -->
       <dialog id="dialog-delete-champ">
         <h2>Are you sure you want to delete this Champ?</h2>
-        <p id="dialog-delete-champ-name">Champ name here</p>
+        <h2 id="dialog-delete-champ-name">Champ name here</h2>
         <form method="dialog" id="form-delete-champ">
-          <button>Yes</button><button type="button" class="btn-cancel" id="dialog-delete-cancel-btn">No</button>
+          <button>Yes</button>
+          <button type="button" class="btn-cancel" id="dialog-delete-cancel-btn">No</button>
         </form>
       </dialog>
 
-      <!-- ========================================== UPDATE CHAMP DIALOG =============================================================================== -->
+      <!-- Update champ dialog -->
       <dialog id="dialog-update-champ">
         <h2>Update Champ</h2>
         <form method="dialog" id="form-update-champ">
-          <label for="name">Name:</label
-          ><input
+          <label for="name">Name:</label>
+          <input
             type="text"
             name="name"
             id="name"
             placeholder="Write new name here"
             required
-          />
-          <br>
-          <label for="image">Image:</label
-          ><input
+          /><br>
+          <label for="image">Image:</label>
+          <input
             type="url"
             id="dialog-image"
             name="image"
             placeholder="Paste new image URL here"
-          />
-          <br>
-          <label for="description">Description:</label
-          ><input
+          /><br>
+          <label for="description">Description:</label>
+          <input
             type="text"
             name="description"
             id="description"
             placeholder="Write new description here"
-          />
-          <br>
-          <label for="region">Region:</label
-          ><input
+          /><br>
+          <label for="region">Region:</label>
+          <input
             type="text"
             id="region"
             name="region"
             placeholder="Write new region here"
-          />
-          
-          <label for="sex">
-            Sex: 
+          /><br>
+          <label for="sex">Sex: 
             <select name="sex" id="sex">
               <option value="Male">Male</option>
               <option value="Female">Female</option>
               <option value="Other">Other</option>
             </select>
           </label><br>
-
-          <label for="species">Species</label
-          ><input
+          <label for="species">Species</label>
+          <input
             type="text"
             id="species"
             name="species"
             placeholder="Put new species here"
-          />
-          
-
-          <br>
-          <label for="role">Role:</label
-          ><input
+          /><br>
+          <label for="role">Role:</label>
+          <input
             type="text"
             id="role"
             name="role"
             placeholder="Put new role(s) here"
             required
-          />
-<!-- 
-          <h2>Role</h2>
-          <label for="top">Top</label>
-          <input type="checkbox" name="role" value="Top"id="top"><br>
-          <label for="jungle">Jungle</label>
-          <input type="checkbox" name="role" value="Jungle" id="jungle"><br>
-          <label for="middle">Middle</label>
-          <input type="checkbox" name="role" value="Middle" id="middle"><br>
-          <label for="bottum">Bottum</label>
-          <input type="checkbox" name="role" value="Bottum" id="bottum"><br>
-          <label for="support">Support</label>
-          <input type="checkbox" name="role" value="Support" id="support"><br>
-          <br> -->
-          <br>
-          <label for="type">Type:</label
-          ><input
+          /><br>
+          <label for="type">Type:</label>
+          <input
             type="text"
             id="type"
             name="type"
             placeholder="Write new type(s) here"
-          />
-
-          <button type="button class="btn-cancel" id="dialog-update-btn">Update champ</button> <button class="btn-cancel" id="dialog-update-close-btn">Cancel</button>
+          /><br>
+          <button type="button id="dialog-update-btn">Update champ</button>
+        </form>
+        <button class="btn-cancel" id="dialog-update-close-btn">Cancel</button>
       </dialog>
       
     </main>
-
     <footer class="background-footer">
       <h2>Made by WAHO</h2>
     </footer>
-
     <script src="script.js" type="module"></script>
   </body>
 </html>

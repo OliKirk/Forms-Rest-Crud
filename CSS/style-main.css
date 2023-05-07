@@ -2,20 +2,15 @@ main {
   background: wheat;
   animation: fadeIn 0.4s;
   padding: 220px 0 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .background-main {
-  /* background-image: url("../pictures/dragon.webp"); */
+  background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/1400/9112b576009313.5c5ca8e8c45c3.jpg");
   background-color: gray;
   background-blend-mode: multiply;
   background-size: cover;
   background-repeat: repeat-y;
-
-  /* display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-  grid-column-gap: 5vw;
-  grid-row-gap: 0px; */
 }
 
 .grid-container {
@@ -48,25 +43,32 @@ main {
 }
 
 .grid-item {
+  border-color: rebeccapurple;
+  border-radius: 2px;
+  border-style: solid;
   box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25);
   padding: 1.5em;
-  background-color: white;
+  background-color:rgba(255, 255, 255, 0.856);
   transition: 0.5s;
   animation: fadeIn 0.5s;
-  cursor: pointer;
 }
 
 .grid-item:hover {
-  box-shadow: 0 8px 16px 0 rebeccapurple;
+  box-shadow: 8px 8px 16px 16px rebeccapurple;
 }
 
 .grid-item img {
+  border-color: goldenrod;
+  border-radius: 2px;
+  border-style: solid;
+  cursor: pointer;
   width: 100%;
   height: px;
   object-fit: cover;
 }
 
-.grid-item p {
+.grid-item h2 {
+  cursor: pointer;
   margin: 0.3em 0;
 }
 
@@ -78,16 +80,17 @@ main {
 }
 
 .grid-container .btns button {
+  border-color: goldenrod;
+  border-radius: 2px;
+  border-style: solid;
   width: 100%;
 }
-
-/* ====== Dialog ======== */
 
 form {
   margin: 2em auto 0;
   background-color: white;
   padding: 1em 1em 2em;
-  text-align: left;
+  text-align:left ;
 }
 
 button {
@@ -129,10 +132,10 @@ dialog::backdrop {
   background: rgb(172, 198, 201, 0.8);
 }
 
-.dialog-grid {
+/* .dialog-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-}
+} */
 
 dialog h4 {
   margin-bottom: 0;

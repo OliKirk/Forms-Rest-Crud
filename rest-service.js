@@ -15,10 +15,8 @@ async function deleteChamp(id) {
   const response = await fetch(`${endpoint}/champs/${id}.json`, {
     method: "DELETE",
   });
-  /* return response */
   if (response.ok) {
     console.log("Champs successfully deleted from Firebase 🔥");
-
     updateChampsGrid();
   }
 }
@@ -40,8 +38,8 @@ async function updateChamp(id, name, description, image, region, sex, species, r
     method: "PUT",
     body: champJson,
   });
-  /* return response; */
   if (response.ok) {
+    console.log("Champs successfully updated on Firebase 🔥")
     updateChampsGrid();
   }
 }
@@ -65,4 +63,5 @@ async function createChamp(name, description, image, region, sex, species, role,
   });
   return response;
 }
+
 export { getChampsData, deleteChamp, updateChamp, createChamp };

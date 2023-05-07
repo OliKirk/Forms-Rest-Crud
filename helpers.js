@@ -30,6 +30,7 @@ function sortByChanged(event) {
   }
   showChamps(champs);
 }
+
 function compareName(champ1, champ2) {
   console.log("compare name");
   return champ1.name.localeCompare(champ2.name);
@@ -54,4 +55,5 @@ function filterByRole(inputValue) {
     return champsList;
   }
 }
+
 export { prepareChamps, searchChamps, sortByChanged, filterByRole };
