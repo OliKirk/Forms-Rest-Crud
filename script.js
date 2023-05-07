@@ -15,6 +15,7 @@ function initApp() {
   document.querySelector("#form-create-champ .btn-cancel").addEventListener("click", createCancelClicked);
   document.querySelector("#form-delete-champ .btn-cancel").addEventListener("click", deleteCancelClicked);
   document.querySelector("#form-update-champ .btn-cancel").addEventListener("click", updateCancelClicked);
+  document.querySelector("#filter-btn").addEventListener("click", filterChampsClicked)
 
   document.querySelector("#select-sort-by").addEventListener("change", sortByChanged);
   document.querySelector("#input-search").addEventListener("keyup", inputSearchChanged);
@@ -263,7 +264,8 @@ function compareName(champ1, champ2) {
 function compareRole(champ1, champ2) {
   return champ1.role.localeCompare(champ2.role);
 }
-
+function filterChampsClicked(){console.log("Filter champs clicked");
+document.querySelector("#filter-dialog").showModal();}
 // ======================================= Regions ======================================//
 
 function regionThemeSelector(region) {

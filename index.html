@@ -31,21 +31,12 @@
             <input type="search" id="input-search" placeholder="Search by name">
           </div>
       </section>
-
-            <label for="filter-by">Filter by role:
-           <form id="filter-by" name="filter-by">
-            <select>
-                <option value="">Not selected</option>
-                <option value="top">Top</option>
-                <option value="jungle">Jungle</option>
-                <option value="middle">Middle</option>
-                <option value="marksman">Bottom</option>
-                <option value="support">Support</option>
-            </select>
-          </form>
-        </label>  
+        
+          <button id="filter-btn">Filter</button>  
+        
+          
+        </header>
         <section id="champs" class="grid-container"></section>
-      </header>
       
 
     <main class="background-main">
@@ -54,6 +45,19 @@
 
       <dialog id="dialog-detail-view"></dialog>
 
+<dialog id="filter-dialog"><h2>Filter by role</h2>
+  <form id="filter-by" name="filter-by">
+   <label for="bottom">Bottom</label>
+   <input type="radio" name="bottom">
+   <label for="top">Top</label>
+   <input type="radio" name="top">
+   <label for="middle">Middle</label>
+   <input type="radio" name="middle">
+   <label for="jungle">Jungle</label>
+   <input type="radio" name="jungle">
+   <label for="support">Support</label>
+   <input type="radio" name="support">
+ </form></dialog>
 
       <!-- ========================================== CREATE CHAMP DIALOG =============================================================================== -->
       <dialog id="dialog-create-champ">
@@ -228,7 +232,7 @@
       </dialog>
       
     </main>
-    
+
     <footer class="background-footer">
       <h2>Made by WAHO</h2>
     </footer>
