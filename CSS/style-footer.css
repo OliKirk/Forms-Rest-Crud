@@ -9,6 +9,8 @@ footer {
 }
 footer h2 {
   color: aliceblue;
+  padding-top: 200px;
+  padding-bottom: 0px;
 }
 
 .background-footer {
