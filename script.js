@@ -21,8 +21,8 @@ function initApp() {
     .querySelector("#form-update-champ")
     .addEventListener("submit", updateChampClicked);
   document
-      .querySelector("#filter-btn")
-      .addEventListener("click", filterChampsClicked)
+    .querySelector("#filter-btn")
+    .addEventListener("click", filterChampsClicked)
   document
     .querySelector("#form-create-champ .btn-cancel")
     .addEventListener("click", createCancelClicked);
@@ -298,6 +298,7 @@ function compareName(champ1, champ2) {
 function compareRole(champ1, champ2) {
   return champ1.role.localeCompare(champ2.role);
 }
+
 function filterByRole(inputValue){
   inputValue=inputValue.toLowerCase(); 
   if(inputValue !== ""){
@@ -315,6 +316,7 @@ function filterByRole(inputValue){
     return champsList;
   }
 }
+
 // ======================================= Regions ======================================//
 
 function regionThemeSelector(region) {
