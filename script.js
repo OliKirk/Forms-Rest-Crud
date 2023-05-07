@@ -144,6 +144,11 @@ function updateCancelClicked() {
   document.querySelector("#dialog-update-champ").close();
 }
 
+function filterChampsClicked(){
+  console.log("Filter champs clicked");
+  document.querySelector("#filter-dialog").showModal();
+}
+
 async function createChampClicked(event) {
   const form = event.target;
   const name = form.name.value;
@@ -264,8 +269,7 @@ function compareName(champ1, champ2) {
 function compareRole(champ1, champ2) {
   return champ1.role.localeCompare(champ2.role);
 }
-function filterChampsClicked(){console.log("Filter champs clicked");
-document.querySelector("#filter-dialog").showModal();}
+
 // ======================================= Regions ======================================//
 
 function regionThemeSelector(region) {

@@ -16,6 +16,7 @@
   <body>
     <header class="background-header">
       <h1 href="#" class="">League Of Legends Champions</h1>
+      
       <button id="create-champ-btn">Create new champ</button>
 
       <section class="tools-grid">
@@ -34,30 +35,29 @@
         
           <button id="filter-btn">Filter</button>  
         
-          
         </header>
-        <section id="champs" class="grid-container"></section>
-      
-
+        
     <main class="background-main">
 
       <section id="champ-data" class="grid-container"></section>
 
       <dialog id="dialog-detail-view"></dialog>
 
-<dialog id="filter-dialog"><h2>Filter by role</h2>
+      <dialog id="filter-dialog"><h2>Filter by role</h2>
   <form id="filter-by" name="filter-by">
    <label for="bottom">Bottom</label>
-   <input type="radio" name="bottom">
+   <input type="radio" name="bottom"><br>
    <label for="top">Top</label>
-   <input type="radio" name="top">
+   <input type="radio" name="top"><br>
    <label for="middle">Middle</label>
-   <input type="radio" name="middle">
+   <input type="radio" name="middle"><br>
    <label for="jungle">Jungle</label>
-   <input type="radio" name="jungle">
+   <input type="radio" name="jungle"><br>
    <label for="support">Support</label>
-   <input type="radio" name="support">
- </form></dialog>
+   <input type="radio" name="support"><br>
+   <button class="btn-cancel">Close</button>
+ </form>
+      </dialog>
 
       <!-- ========================================== CREATE CHAMP DIALOG =============================================================================== -->
       <dialog id="dialog-create-champ">
