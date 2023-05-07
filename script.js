@@ -8,18 +8,46 @@ window.addEventListener("load", initApp);
 function initApp() {
   console.log("initApp is running 🎉");
   updateChampsGrid();
-  document.querySelector("#create-champ-btn").addEventListener("click", showCreateChampDialog);
-  document.querySelector("#form-create-champ").addEventListener("submit", createChampClicked);
-  document.querySelector("#form-delete-champ").addEventListener("submit", deleteChampClicked);
-  document.querySelector("#form-update-champ").addEventListener("submit", updateChampClicked);
-  document.querySelector("#form-create-champ .btn-cancel").addEventListener("click", createCancelClicked);
-  document.querySelector("#form-delete-champ .btn-cancel").addEventListener("click", deleteCancelClicked);
-  document.querySelector("#form-update-champ .btn-cancel").addEventListener("click", updateCancelClicked);
-  document.querySelector("#filter-btn").addEventListener("click", filterChampsClicked)
-
-  document.querySelector("#select-sort-by").addEventListener("change", sortByChanged);
-  document.querySelector("#input-search").addEventListener("keyup", inputSearchChanged);
-  document.querySelector("#input-search").addEventListener("search", inputSearchChanged);
+  document
+    .querySelector("#create-champ-btn")
+    .addEventListener("click", showCreateChampDialog);
+  document
+    .querySelector("#form-create-champ")
+    .addEventListener("submit", createChampClicked);
+  document
+    .querySelector("#form-delete-champ")
+    .addEventListener("submit", deleteChampClicked);
+  document
+    .querySelector("#form-update-champ")
+    .addEventListener("submit", updateChampClicked);
+  document
+    .querySelector("#filter-btn")
+    .addEventListener("click", filterChampsClicked)
+  document
+    .querySelector("#form-create-champ .btn-cancel")
+    .addEventListener("click", createCancelClicked);
+  document
+    .querySelector("#form-delete-champ .btn-cancel")
+    .addEventListener("click", deleteCancelClicked);
+  document
+    .querySelector("#form-update-champ .btn-cancel")
+    .addEventListener("click", updateCancelClicked);
+  document
+    .querySelector("#filter-btn-close")
+    .addEventListener("click", filterCancelClicked)
+  document
+    .querySelector("#select-sort-by")
+    .addEventListener("change", sortByChanged);
+  document
+    .querySelector("#input-search")
+    .addEventListener("keyup", inputSearchChanged);
+  document
+    .querySelector("#input-search")
+    .addEventListener("search", inputSearchChanged);
+  document
+    .querySelector("#filter-by")
+    .addEventListener("change", (event) =>
+      showChamps(filterByRole(event.target.value)));
 }
 
 async function updateChampsGrid() {
@@ -143,6 +171,7 @@ function createCancelClicked() {
 function updateCancelClicked() {
   document.querySelector("#dialog-update-champ").close();
 }
+function filterCancelClicked(){document.querySelector("#filter-dialog").close()}
 
 function filterChampsClicked(){
   console.log("Filter champs clicked");
@@ -268,6 +297,24 @@ function compareName(champ1, champ2) {
 
 function compareRole(champ1, champ2) {
   return champ1.role.localeCompare(champ2.role);
+}
+
+function filterByRole(inputValue){
+  inputValue=inputValue.toLowerCase(); 
+  if(inputValue !== ""){
+    let filteredList = champs.filter((champ) =>
+    champ.role.toLowerCase().includes(inputValue));
+    if(filteredList.length !== 0){
+      return filteredList
+    } else{
+      return filteredList=[];
+    }
+  } 
+  else if (inputValue===""){
+    updateChampsGrid();}
+  else{
+    return champsList;
+  }
 }
 
 // ======================================= Regions ======================================//

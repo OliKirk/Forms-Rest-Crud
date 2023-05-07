@@ -44,19 +44,21 @@
       <dialog id="dialog-detail-view"></dialog>
 
       <dialog id="filter-dialog"><h2>Filter by role</h2>
-  <form id="filter-by" name="filter-by">
-   <label for="bottom">Bottom</label>
-   <input type="radio" name="bottom"><br>
-   <label for="top">Top</label>
-   <input type="radio" name="top"><br>
-   <label for="middle">Middle</label>
-   <input type="radio" name="middle"><br>
-   <label for="jungle">Jungle</label>
-   <input type="radio" name="jungle"><br>
-   <label for="support">Support</label>
-   <input type="radio" name="support"><br>
-   <button class="btn-cancel">Close</button>
- </form>
+        <form id="filter-by" name="filter-by">
+          <label for="no-filter">No filter</label>
+          <input type="radio" name="filter-by" value=""><br>
+          <label for="bottom">Bottom</label>
+          <input type="radio" name="filter-by" value="bottom"><br>
+          <label for="top">Top</label>
+          <input type="radio" name="filter-by" value="top"><br>
+          <label for="middle">Middle</label>
+          <input type="radio" name="filter-by" value="middle"><br>
+          <label for="jungle">Jungle</label>
+          <input type="radio" name="filter-by" value="jungle"><br>
+          <label for="support">Support</label>
+          <input type="radio" name="filter-by" value="support"><br>
+        </form>
+        <button id="filter-btn-close">Close</button>
       </dialog>
 
       <!-- ========================================== CREATE CHAMP DIALOG =============================================================================== -->
