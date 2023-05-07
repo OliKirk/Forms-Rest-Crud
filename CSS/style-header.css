@@ -23,7 +23,6 @@ header h1 {
   font-size: 1em;
   text-transform: uppercase;
   letter-spacing: 2px;
-  /* background-image: url("../pictures/header.jpg"); */
   background-repeat: no-repeat;
   opacity: 1;
 }
