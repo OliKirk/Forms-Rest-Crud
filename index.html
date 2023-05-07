@@ -17,33 +17,31 @@
     <header class="background-header">
       <h1 href="#" class="">League Of Legends Champions</h1>
       <button id="create-champ-btn">Create new champ</button>
-
       <section class="tools-grid">
         <label for="select-sort-by">Sort by:
             <select id="select-sort-by">
-                <option value="a-z" selected>Not selected</option>
-                <option value="name">Name</option>
-                <option value="role">Role</option>
+              <option value="a-z" selected>Not selected</option>
+              <option value="name">Name</option>
+              <option value="role">Role</option>
             </select>
         </label>
-          <div>
-            <label for="input-search">Search:</label>
-            <input type="search" id="input-search" placeholder="Search by name">
-          </div>
+            <div>
+              <label for="input-search">Search:</label>
+              <input type="search" id="input-search" placeholder="Search by name">
+            </div>
       </section>
-        
-          <button id="filter-btn">Filter</button>  
-        
-
-        </header>
-        
+      <button id="filter-btn">Filter</button>   
+    </header>
     <main class="background-main">
-
+      <!-- Main view -->
       <section id="champ-data" class="grid-container"></section>
 
+      <!-- Detail view dialog -->
       <dialog id="dialog-detail-view"></dialog>
 
-      <dialog id="filter-dialog"><h2>Filter by role</h2>
+      <!-- Filter by role dialog -->
+      <dialog id="filter-dialog">
+        <h2>Filter by role</h2>
         <form id="filter-by" name="filter-by">
           <label for="no-filter">No filter</label>
           <input type="radio" name="filter-by" value=""><br>
@@ -61,7 +59,7 @@
         <button id="filter-btn-close">Close</button>
       </dialog>
 
-      <!-- ========================================== CREATE CHAMP DIALOG =============================================================================== -->
+      <!-- Create champ dialog -->
       <dialog id="dialog-create-champ">
         <h2>Create new Champ</h2>
         <form method="dialog" id="form-create-champ">
@@ -73,30 +71,27 @@
             placeholder="Write new name here"
             required
           />
-          <br>
-          <label for="image">Image:</label
-          ><input
+          <label for="image">Image:</label>
+          <input
             type="url"
             id="dialog-image"
             name="image"
             placeholder="Paste new image URL here"
           />
-          <br>
-          <label for="description">Description:</label
-          ><input
+          <label for="description">Description:</label>
+          <input
             type="text"
             name="description"
             id="description"
             placeholder="Write new description here"
-          />
-          <br>
-          <label for="region">Region:</label
-          ><input
+          /><br>
+          <label for="region">Region:</label>
+          <input
             type="text"
             id="region"
             name="region"
             placeholder="Write new region here"
-          />
+          /><br>
           <label for="sex">
             Sex: 
             <select name="sex" id="sex">
@@ -112,7 +107,6 @@
             name="species"
             placeholder="Put new species here"
           />
-  
           <br>
           <label for="role">Role:</label
           ><input
@@ -130,7 +124,6 @@
             name="type"
             placeholder="Write new type(s) here"
           />
-
           <button id="create-champ-submit">Create champ</button><button type="button" class="btn-cancel" id="create-champ-cancel">Cancel</button>
         </form>
       </dialog>
@@ -240,6 +233,5 @@
     </footer>
 
     <script src="script.js" type="module"></script>
-    
   </body>
 </html>
