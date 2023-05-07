@@ -1,5 +1,6 @@
 "use strict";
 import { prepareChamps } from "./helpers.js";
+import { updateChampsGrid } from "./script.js";
 
 const endpoint = "https://my-api-database-ccaf8-default-rtdb.europe-west1.firebasedatabase.app/";
 
@@ -14,6 +15,7 @@ async function deleteChamp(id) {
   const response = await fetch(`${endpoint}/champs/${id}.json`, {
     method: "DELETE",
   });
+  /* return response */
   if (response.ok) {
     console.log("Champs successfully deleted from Firebase 🔥");
 

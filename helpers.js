@@ -1,5 +1,6 @@
 "use strict";
-import { champs } from "./script.js";
+import { champs, showChamps, updateChampsGrid } from "./script.js";
+
 function prepareChamps(dataObject) {
   const array = [];
   for (const key in dataObject) {
@@ -28,6 +29,14 @@ function sortByChanged(event) {
     champs.sort(compareRole);
   }
   showChamps(champs);
+}
+function compareName(champ1, champ2) {
+  console.log("compare name");
+  return champ1.name.localeCompare(champ2.name);
+}
+
+function compareRole(champ1, champ2) {
+  return champ1.role.localeCompare(champ2.role);
 }
 
 function filterByRole(inputValue) {
