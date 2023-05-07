@@ -47,6 +47,7 @@ function showChamp(champ) {
         <div class ="body">        
         <img src=${champ.image}>
         <h2>${champ.name}</h2>
+        <h2>${champ.role}</h2>
         </div>
         <div class="btns">
             <button class="update-btn">Update</button>
